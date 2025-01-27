@@ -197,7 +197,16 @@
                     flashcard.className = 'flashcard';
                     flashcard.textContent = vocab.kanji || vocab.hiragana;
                     flashcard.onclick = () => {
-                        flashcard.textContent = flashcard.textContent === (vocab.kanji || vocab.hiragana) ? `${vocab.hiragana} - ${vocab.indonesian}` : (vocab.kanji || vocab.hiragana);
+                        if (flashcard.textContent === (vocab.kanji || vocab.hiragana)) {
+                            flashcard.textContent = `${vocab.hiragana} - ${vocab.indonesian}`;
+                            if (vocab.indonesian) {
+                                const utterance = new SpeechSynthesisUtterance(vocab.hiragana);
+                                utterance.lang = 'ja-JP';
+                                speechSynthesis.speak(utterance);
+                            }
+                        } else {
+                            flashcard.textContent = vocab.kanji || vocab.hiragana;
+                        }
                     };
                     flashcardContainer.appendChild(flashcard);
                 });
