@@ -90,53 +90,75 @@
         form button:hover {
             background: #3700b3;
         }
-
-        .flashcard {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            margin-top: 20px;
-            text-align: center;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-        }
-
+#vocabularyList{
+padding-top: 30px;
+}
+        
         .flashcard:hover {
             background: #f4f4f9;
         }
+        
+        .toggle-bab {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    font-size: 16px;
+}
+
+.toggle-bab:hover {
+    background-color: #2980b9;
+}
+
+.vocab-container {
+    margin-left: 10px;
+}
+.flashcard {
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin-top: 20px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    background-color: #f9f9f9;
+    font-size: 18px;
+    margin: 5px;
+}
+
+
+
     </style>
 </head>
 <body>
     <div id="header">
         <header>
-            <h1>Japanese Vocabulary Manager</h1>
+            <h1>Kotoba <br> Minna no Nihonggo</h1>
         </header>
 
         <nav>
-            <button onclick="showMenu('vocabularyList')">Daftar Kosakata</button>
-            <button onclick="showMenu('addVocabulary')">Tambahkan Kosakata</button>
+            <button onclick="showMenu('vocabularyList')">Materi Partikel</button>
             <button onclick="showMenu('flashcards')">Flashcard</button>
         </nav>
     </div>
 
     <div class="content">
         <div id="vocabularyList" class="hidden">
-            <h2>Daftar Kosakata</h2>
-            <ul id="vocabList">Belum ada kata yang tersimpan.</ul>
+            <br>
+            <h2>Materi Partikel</h2>
+            <br>
+            <ul id="vocabList">Soon</ul>
         </div>
 
-        <div id="addVocabulary" class="hidden">
-            <h2>Tambahkan Kosakata</h2>
-            <form id="vocabForm">
-                <input type="text" id="hiragana" placeholder="Hiragana/Katakana" required>
-                <input type="text" id="kanji" placeholder="Kanji">
-                <input type="text" id="indonesian" placeholder="Bahasa Indonesia" required>
-                <button type="submit">Simpan</button>
-            </form>
-        </div>
+ 
 
         <div id="flashcards" class="hidden">
             <h2>Flashcard</h2>
@@ -157,61 +179,90 @@
             const vocabUl = document.getElementById('vocabList');
             vocabUl.innerHTML = '';
 
-            if (vocabList.length === 0) {
-                vocabUl.textContent = 'Belum ada kata yang tersimpan.';
-            } else {
-                vocabList.forEach(vocab => {
-                    const li = document.createElement('li');
-                    li.textContent = `${vocab.hiragana} (${vocab.kanji || '—'}) - ${vocab.indonesian}`;
-                    vocabUl.appendChild(li);
-                });
-            }
+
         }
 
-        document.getElementById('vocabForm').addEventListener('submit', (event) => {
-            event.preventDefault();
-            const hiragana = document.getElementById('hiragana').value;
-            const kanji = document.getElementById('kanji').value;
-            const indonesian = document.getElementById('indonesian').value;
 
-            const newVocab = { hiragana, kanji, indonesian };
-            const vocabList = JSON.parse(localStorage.getItem('vocabulary')) || [];
-            vocabList.push(newVocab);
 
-            localStorage.setItem('vocabulary', JSON.stringify(vocabList));
+        function fetchAndStoreVocabulary() {
+    fetch('kosakata.json')
+        .then(response => response.json())
+        .then(data => {
+            // Simpan data persis seperti di kosakata.json
+            localStorage.setItem('vocabulary', JSON.stringify(data));
+            console.log('Kosakata berhasil disimpan ke localStorage!');
+        })
+        .catch(error => console.error('Gagal mengambil data:', error));
+}
 
-            document.getElementById('vocabForm').reset();
-            alert('Kosakata berhasil disimpan!');
-        });
+// Panggil fungsi saat halaman dimuat
+fetchAndStoreVocabulary();
 
-        function loadFlashcards() {
-            const vocabList = JSON.parse(localStorage.getItem('vocabulary')) || [];
-            const flashcardContainer = document.getElementById('flashcardContainer');
-            flashcardContainer.innerHTML = '';
 
-            if (vocabList.length === 0) {
-                flashcardContainer.textContent = 'Belum ada kata yang tersimpan.';
-            } else {
-                vocabList.forEach(vocab => {
-                    const flashcard = document.createElement('div');
-                    flashcard.className = 'flashcard';
-                    flashcard.textContent = vocab.kanji || vocab.hiragana;
-                    flashcard.onclick = () => {
-                        if (flashcard.textContent === (vocab.kanji || vocab.hiragana)) {
-                            flashcard.textContent = `${vocab.hiragana} - ${vocab.indonesian}`;
-                            if (vocab.indonesian) {
-                                const utterance = new SpeechSynthesisUtterance(vocab.hiragana);
-                                utterance.lang = 'ja-JP';
-                                speechSynthesis.speak(utterance);
-                            }
-                        } else {
-                            flashcard.textContent = vocab.kanji || vocab.hiragana;
+
+function loadFlashcards() {
+    const vocabData = JSON.parse(localStorage.getItem('vocabulary')) || {};
+    const flashcardContainer = document.getElementById('flashcardContainer');
+    flashcardContainer.innerHTML = '';
+
+    if (Object.keys(vocabData).length === 0) {
+        flashcardContainer.textContent = 'Belum ada kata yang tersimpan.';
+    } else {
+        Object.keys(vocabData).forEach(bab => {
+            // Buat tombol toggle untuk setiap bab
+            const babToggle = document.createElement('button');
+            babToggle.className = 'toggle-bab';
+            babToggle.textContent = bab;
+            flashcardContainer.appendChild(babToggle);
+
+            // Buat container untuk kosakata dalam bab ini
+            const vocabContainer = document.createElement('div');
+            vocabContainer.className = 'vocab-container';
+            vocabContainer.style.display = 'none'; // Awalnya disembunyikan
+            flashcardContainer.appendChild(vocabContainer);
+
+            // Tambahkan event listener ke tombol toggle
+            babToggle.onclick = () => {
+    // Tutup semua vocabContainer lainnya sebelum membuka yang baru
+    document.querySelectorAll('.vocab-container').forEach(container => {
+        if (container !== vocabContainer) {
+            container.style.display = 'none';
+        }
+    });
+
+    // Tampilkan atau sembunyikan vocabContainer yang dipilih
+    vocabContainer.style.display = vocabContainer.style.display === 'none' ? 'block' : 'none';
+};
+
+
+            // Loop setiap kosakata dalam bab
+            vocabData[bab].forEach(entry => {
+                const flashcard = document.createElement('div');
+                flashcard.className = 'flashcard';
+                flashcard.textContent = entry[0] || entry[1]; // Kanji jika ada, kalau tidak pakai Hiragana
+                
+                flashcard.onclick = () => {
+                    if (flashcard.textContent === (entry[0] || entry[1])) {
+                        flashcard.textContent = `${entry[1]} - ${entry[2]}`;
+                        
+                        // Tambahkan fitur Text-to-Speech (TTS)
+                        if (entry[2]) {
+                            const utterance = new SpeechSynthesisUtterance(entry[1]);
+                            utterance.lang = 'ja-JP';
+                            speechSynthesis.speak(utterance);
                         }
-                    };
-                    flashcardContainer.appendChild(flashcard);
-                });
-            }
-        }
+                    } else {
+                        flashcard.textContent = entry[0] || entry[1];
+                    }
+                };
+
+                vocabContainer.appendChild(flashcard);
+            });
+        });
+    }
+}
+
+
     </script>
 </body>
 </html>
