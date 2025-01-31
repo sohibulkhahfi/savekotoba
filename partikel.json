@@ -1,0 +1,60 @@
+{
+    "bab1":[
+        {"jenisPartikel":"Kalimat positif dasar",
+            "polaKalimat":"kata benda 1 + は + kata benda 2 + です" ,
+        "contohKalimat":[
+            ["<p><strong>わたし</strong>は <ruby><strong>学生</strong><rt>がくせい</rt></ruby> です。<br>Aku adalah seorang murid</p>","わたしは 学生 です。"]
+            ,["<p><strong>わたし</strong>は <strong>アイリ</strong>です。<br>Saya AIRI.</p>","わたしは アイリです。"]
+            ,["<p><strong>わたし</strong>は <ruby><strong>日本人</strong><rt>にほんじん</rt></ruby>です。<br>Saya orang Jepang.</p>","わたしは 日本人です。"]
+            ,["<p><strong>あなた</strong>は <strong>インドネシア</strong><ruby><strong>人</strong><rt>じん</rt></ruby>です。<br>Kamu orang indonesia.</p>","あなたは インドネシア人です。"]
+            ,["<p><ruby><strong>田中</strong><rt>たなか</rt></ruby><strong>さん</strong>は <ruby><strong>医者</strong><rt>いしゃ</rt></ruby>です。<br>Tanaka adalah seorang dokter.</p>","田中さんは 医者です。"]
+            ,["<p><ruby><strong>母</strong><rt>はは</rt></ruby>は <ruby><strong>教師</strong><rt>きょうし</rt></ruby>です。<br>Ibu adalah seorang guru.</p>","母は 教師です。"]
+            ,["<p><strong>あの</strong><ruby><strong>方</strong><rt>かた</rt></ruby>は <strong>まゆみさん</strong>です。<br>Orang itu adalah Mayumi.</p>","あの方は まゆみさんです。"]
+            ,["<p><strong>これ</strong>は <ruby><strong>本</strong><rt>ほん</rt></ruby>です。<br>Ini adalah buku.</p>","これは 本です。"]
+            ,["<p><strong>それ</strong>は <strong>スマートフォン</strong>です。<br>Ini adalah smartphone.</p>","それは スマートフォンです。"]
+            ,["<p><strong>あれ</strong>は <ruby><strong>学校</strong><rt>がっこう</rt></ruby>です。<br>Itu adalah sekolah.</p>","あれは 学校です。"]
+        ]
+    },
+        {"jenisPartikel":"Kalimat dasar Negatif",
+            "polaKalimat":"kata benda 1 + は + kata benda 2 + ではありません。",
+            "contohKalimat":[
+                ["<p><strong>わたし</strong>は <ruby><strong>学生</strong><rt>がくせい</rt></ruby><strong>ではありません</strong>。<br>Saya bukan pelajar.</p>","わたしは 学生ではありません。"],
+                ["<p><strong>わたし</strong>は <ruby><strong>田中</strong><rt>たなか</rt></ruby><strong>ではありません</strong>。<br>Saya bukan Tanaka.</p>","わたしは 田中ではありません。"],
+                ["<p><strong>わたし</strong>は<strong> アメリカ</strong><ruby><strong>人</strong><rt>じん</rt></ruby><strong>ではありません。</strong><br>Saya bukan orang Amerika.</p>","わたしは アメリカ人ではありません。"],
+                ["<p><strong>あなた</strong>は <strong>フランス</strong><ruby><strong>人</strong><rt>じん</rt><strong>ではありません</strong>。</ruby><br>Kamu bukan orang perancis.</p>","あなたは フランス人ではありません。"],
+                ["<p><ruby><strong>田中</strong><rt>たなか</rt></ruby><strong>さん</strong>は <ruby><strong>医者</strong><rt>いしゃ</rt></ruby><strong>ではありません</strong>。<br>Tanaka bukanlah seorang dokter.</p>","田中さんは 医者ではありません。"],
+                ["<p><ruby><strong>母</strong><rt>はは</rt></ruby>は <ruby><strong>教師</strong><rt>きょうし</rt></ruby><strong>ではありません</strong>。<br>Ibu bukan seorang guru.</p>","母は 教師ではありません。"],
+                ["<p><strong>あの</strong><ruby><strong>方</strong><rt>かた</rt></ruby>は <strong>まゆみさんではありません</strong>。<br>Orang itu bukan Mayumi.</p>","あの方は まゆみさんではありません。"],
+                ["<p><strong>これ</strong>は <ruby><strong>本</strong><rt>ほん</rt></ruby><strong>ではありません</strong>。<br>Ini bukan buku.</p>","これは 本ではありません。"],
+                ["<p><strong>それ</strong>は <strong>スマートフォンではありません</strong>。<br>Ini bukan smartphone.</p>","それは スマートフォンではありません。"],
+                ["<p><strong>あれ</strong>は <ruby><strong>学校</strong><rt>がっこう</rt></ruby><strong>ではありません</strong>。<br>Itu bukan sekolah.</p>","あれは 学校ではありません。"]
+
+            ]},
+            {
+                "jenisPartikel":"Kalimat dasar Pertanyaan",
+                "polaKalimat":"kata benda 1 + は + kata benda 2 + ですか",
+                "contohKalimat":[
+                    ["<p><strong>あなた</strong>は <ruby><strong>先生</strong><rt>せんせい</rt></ruby><strong>ですか</strong>？<br>Apakah Anda seorang guru?</p>", "あなたは 先生ですか？"],
+                    ["<p><ruby><strong>彼</strong><rt>かれ</rt></ruby>は <ruby><strong>医者</strong><rt>いしゃ</rt></ruby><strong>ですか</strong>？<br>Apakah dia seorang dokter?</p>", "彼は 医者ですか？"],
+                    ["<p><ruby><strong>彼女</strong><rt>かのじょ</rt></ruby>は <ruby><strong>日本人</strong><rt>にほんじん</rt></ruby><strong>ですか</strong>？<br>Apakah dia orang Jepang?</p>", "彼女は 日本人ですか？"],
+                    ["<p><strong>それ</strong>は <ruby><strong>本</strong><rt>ほん</rt></ruby><strong>ですか</strong>？<br>Apakah itu sebuah buku?</p>", "それは 本ですか？"],
+                    ["<p><strong>この人</strong>は <ruby><strong>田中</strong><rt>たなか</rt></ruby><strong>ですか</strong>？<br>Apakah orang ini Tanaka?</p>", "この人は 田中ですか？"]
+                ]
+            }
+    ],
+    "bab2":[
+        {"jenisPartikel":"Kalimat dasar Pertanyaan 2 Pilihan",
+    "polaKalimat":"kata tunjuk は kata benda 1 ですか kata benda 2 ですか",
+"contohKalimat":[
+    ["<p><strong>これは</strong> <ruby><strong>本</strong><rt>ほん</rt></ruby>ですか、<ruby><strong>雑誌</strong><rt>ざっし</rt></ruby>ですか？<br>Apakah ini buku atau majalah?</p>", "これは 本ですか、雑誌ですか？"],
+    ["<p><strong>それは</strong> <ruby><strong>犬</strong><rt>いぬ</rt></ruby>ですか、<ruby><strong>猫</strong><rt>ねこ</rt></ruby>ですか？<br>Apakah itu anjing atau kucing?</p>", "それは 犬ですか、猫ですか？"],
+    ["<p><strong>あれは</strong> <ruby><strong>先生</strong><rt>せんせい</rt></ruby>ですか、<ruby><strong>医者</strong><rt>いしゃ</rt></ruby>ですか？<br>Apakah itu guru atau dokter?</p>", "あれは 先生ですか、医者ですか？"],
+    ["<p><strong>この飲み物</strong>は <ruby><strong>コーヒー</strong><rt>こーひー</rt></ruby>ですか、<ruby><strong>お茶</strong><rt>おちゃ</rt></ruby>ですか？<br>Apakah minuman ini kopi atau teh?</p>", "この飲み物は コーヒーですか、お茶ですか？"],
+    ["<p><strong>その人</strong>は <ruby><strong>学生</strong><rt>がくせい</rt></ruby>ですか、<ruby><strong>先生</strong><rt>せんせい</rt></ruby>ですか？<br>Apakah orang itu murid atau guru?</p>", "その人は 学生ですか、先生ですか？"],
+    ["<p><strong>あなたの車</strong>は <ruby><strong>赤</strong><rt>あか</rt></ruby>ですか、<ruby><strong>青</strong><rt>あお</rt></ruby>ですか？<br>Apakah mobil Anda merah atau biru?</p>", "あなたの車は 赤ですか、青ですか？"],
+    ["<p><strong>あの建物</strong>は <ruby><strong>病院</strong><rt>びょういん</rt></ruby>ですか、<ruby><strong>学校</strong><rt>がっこう</rt></ruby>ですか？<br>Apakah gedung itu rumah sakit atau sekolah?</p>", "あの建物は 病院ですか、学校ですか？"],  
+    ["<p><strong>この食べ物</strong>は <ruby><strong>肉</strong><rt>にく</rt></ruby>ですか、<ruby><strong>魚</strong><rt>さかな</rt></ruby>ですか？<br>Apakah makanan ini daging atau ikan?</p>", "この食べ物は 肉ですか、魚ですか？"]
+]}
+    
+    ]
+}

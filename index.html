@@ -90,6 +90,9 @@
         form button:hover {
             background: #3700b3;
         }
+        p{
+            margin-top: 2px;
+        }
 #vocabularyList{
 padding-top: 30px;
 }
@@ -134,7 +137,73 @@ padding-top: 30px;
     margin: 5px;
 }
 
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
 
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 60%;
+    max-width: 500px;
+    text-align: center;
+    max-height: 80vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow-y: auto;
+    max-height: 100vh;
+    padding-right: 10px;
+}
+
+.modal-body {
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    background-color: #ddd;
+    border-radius: 25%;
+}
+.partikel-list {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.partikel-list button {
+    padding: 5px 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background-color 0.3s;
+}
+
+.partikel-list button:hover {
+    background-color: #0056b3;
+}
 
     </style>
 </head>
@@ -152,12 +221,12 @@ padding-top: 30px;
 
     <div class="content">
         <div id="vocabularyList" class="hidden">
-            <br>
-            <h2>Materi Partikel</h2>
-            <br>
-            <ul id="vocabList">Soon</ul>
+<br>
+     
+            <h2 id="vocabTitle">Materi Partikel</h2> <!-- Ini akan diganti dengan key dari JSON -->
+        
+            <div id="vocabList">Soon</div>
         </div>
-
  
 
         <div id="flashcards" class="hidden">
@@ -174,17 +243,89 @@ padding-top: 30px;
             if (menu === 'flashcards') loadFlashcards();
         }
 
-        function loadVocabulary() {
-            const vocabList = JSON.parse(localStorage.getItem('vocabulary')) || [];
-            const vocabUl = document.getElementById('vocabList');
-            vocabUl.innerHTML = '';
+// Fungsi untuk memuat JSON dan menampilkannya
+function loadVocabulary() {
+    fetch("partikel.json") // Mengambil data dari file JSON
+        .then(response => response.json()) // Konversi ke objek JavaScript
+        .then(data => {
+            const vocabList = document.getElementById("vocabList");
+            vocabList.innerHTML = ""; // Kosongkan daftar sebelum diisi
+            
+            Object.keys(data).forEach(bab => {
+                const babButton = document.createElement("button");
+                babButton.textContent = bab;
+                babButton.className = 'toggle-bab';
+                babButton.onclick = () => togglePartikelList(babButton, data[bab]);
+                vocabList.appendChild(babButton);
+            });
+        })
+        .catch(error => console.error("Error saat memuat JSON:", error));
+}
+
+// Fungsi untuk menampilkan atau menyembunyikan daftar jenis partikel dari bab yang dipilih
+function togglePartikelList(button, partikelList) {
+    
+    const existingList = button.nextElementSibling;
+    if (existingList && existingList.classList.contains("partikel-list")) {
+        existingList.remove(); // Hapus daftar jika sudah ada
+        return;
+    }
+    
+    const partikelContainer = document.createElement("div");
+    partikelContainer.classList.add("partikel-list");
+    
+    partikelList.forEach(partikel => {
+        const partikelButton = document.createElement("button");
+        partikelButton.textContent = partikel.jenisPartikel;
+        partikelButton.onclick = () => showModal(partikel);
+        partikelContainer.appendChild(partikelButton);
+    });
+    
+    button.after(partikelContainer);
+}
 
 
-        }
+// Fungsi untuk menampilkan modal dengan contoh kalimat
+function showModal(partikel) {
+    // Hapus modal sebelumnya jika ada
+    const existingModal = document.querySelector(".modal");
+    if (existingModal) {
+        existingModal.remove();
+    }
+    
+    // Buat elemen modal
+    const modal = document.createElement("div");
+    modal.classList.add("modal");
+    modal.innerHTML = `
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <span class="close-button" onclick="document.querySelector('.modal').remove()">&times;</span>
+            <h2>${partikel.jenisPartikel}</h2>
+            <p><strong>Pola Kalimat:</strong> ${partikel.polaKalimat}</p>
+            <ul>
+                ${partikel.contohKalimat.map(sentence => `
+                    <li>
+                        <button onclick="speakSentence('${sentence[1]}')">🔊</button>
+                        ${sentence[0]} 
+                    </li>
+                `).join('')}
+            </ul>
+        </div>
+    `;
+    document.body.appendChild(modal);
+}
+
+// Fungsi untuk membaca teks dengan SpeechSynthesis API
+function speakSentence(text) {
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = "ja-JP"; // Bahasa Jepang
+    utterance.rate = 0.8
+    speechSynthesis.speak(utterance);
+}
 
 
 
-        function fetchAndStoreVocabulary() {
+function fetchAndStoreVocabulary() {
     fetch('kosakata.json')
         .then(response => response.json())
         .then(data => {
@@ -195,12 +336,10 @@ padding-top: 30px;
         .catch(error => console.error('Gagal mengambil data:', error));
 }
 
-// Panggil fungsi saat halaman dimuat
-fetchAndStoreVocabulary();
-
-
-
 function loadFlashcards() {
+    // Panggil fungsi saat halaman dimuat
+    fetchAndStoreVocabulary();
+
     const vocabData = JSON.parse(localStorage.getItem('vocabulary')) || {};
     const flashcardContainer = document.getElementById('flashcardContainer');
     flashcardContainer.innerHTML = '';
@@ -249,6 +388,7 @@ function loadFlashcards() {
                         if (entry[2]) {
                             const utterance = new SpeechSynthesisUtterance(entry[1]);
                             utterance.lang = 'ja-JP';
+                            utterance.rate = 0.8;
                             speechSynthesis.speak(utterance);
                         }
                     } else {
