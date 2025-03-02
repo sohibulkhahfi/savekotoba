@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Japanese Vocabulary Manager</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -93,9 +95,7 @@
         p{
             margin-top: 2px;
         }
-#vocabularyList{
-padding-top: 30px;
-}
+
         
         .flashcard:hover {
             background: #f4f4f9;
@@ -210,7 +210,7 @@ padding-top: 30px;
 <body>
     <div id="header">
         <header>
-            <h1>Kotoba <br> Minna no Nihonggo</h1>
+            <h1>Minna no Nihonggo</h1>
         </header>
 
         <nav>
@@ -221,11 +221,9 @@ padding-top: 30px;
 
     <div class="content">
         <div id="vocabularyList" class="hidden">
-<br>
-     
             <h2 id="vocabTitle">Materi Partikel</h2> <!-- Ini akan diganti dengan key dari JSON -->
         
-            <div id="vocabList">Soon</div>
+            <div id="vocabList"></div>
         </div>
  
 
@@ -236,13 +234,6 @@ padding-top: 30px;
     </div>
 
     <script>
-        function showMenu(menu) {
-            document.querySelectorAll('.content > div').forEach(div => div.classList.add('hidden'));
-            document.getElementById(menu).classList.remove('hidden');
-            if (menu === 'vocabularyList') loadVocabulary();
-            if (menu === 'flashcards') loadFlashcards();
-        }
-
 // Fungsi untuk memuat JSON dan menampilkannya
 function loadVocabulary() {
     fetch("partikel.json") // Mengambil data dari file JSON
@@ -261,6 +252,13 @@ function loadVocabulary() {
         })
         .catch(error => console.error("Error saat memuat JSON:", error));
 }
+        function showMenu(menu) {
+            document.querySelectorAll('.content > div').forEach(div => div.classList.add('hidden'));
+            document.getElementById(menu).classList.remove('hidden');
+            if (menu === 'vocabularyList') loadVocabulary();
+            if (menu === 'flashcards') loadFlashcards();
+        }
+
 
 // Fungsi untuk menampilkan atau menyembunyikan daftar jenis partikel dari bab yang dipilih
 function togglePartikelList(button, partikelList) {

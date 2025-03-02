@@ -49,12 +49,78 @@
     ["<p><strong>これは</strong> <ruby><strong>本</strong><rt>ほん</rt></ruby>ですか、<ruby><strong>雑誌</strong><rt>ざっし</rt></ruby>ですか？<br>Apakah ini buku atau majalah?</p>", "これは 本ですか、雑誌ですか？"],
     ["<p><strong>それは</strong> <ruby><strong>犬</strong><rt>いぬ</rt></ruby>ですか、<ruby><strong>猫</strong><rt>ねこ</rt></ruby>ですか？<br>Apakah itu anjing atau kucing?</p>", "それは 犬ですか、猫ですか？"],
     ["<p><strong>あれは</strong> <ruby><strong>先生</strong><rt>せんせい</rt></ruby>ですか、<ruby><strong>医者</strong><rt>いしゃ</rt></ruby>ですか？<br>Apakah itu guru atau dokter?</p>", "あれは 先生ですか、医者ですか？"],
-    ["<p><strong>この飲み物</strong>は <ruby><strong>コーヒー</strong><rt>こーひー</rt></ruby>ですか、<ruby><strong>お茶</strong><rt>おちゃ</rt></ruby>ですか？<br>Apakah minuman ini kopi atau teh?</p>", "この飲み物は コーヒーですか、お茶ですか？"],
-    ["<p><strong>その人</strong>は <ruby><strong>学生</strong><rt>がくせい</rt></ruby>ですか、<ruby><strong>先生</strong><rt>せんせい</rt></ruby>ですか？<br>Apakah orang itu murid atau guru?</p>", "その人は 学生ですか、先生ですか？"],
-    ["<p><strong>あなたの車</strong>は <ruby><strong>赤</strong><rt>あか</rt></ruby>ですか、<ruby><strong>青</strong><rt>あお</rt></ruby>ですか？<br>Apakah mobil Anda merah atau biru?</p>", "あなたの車は 赤ですか、青ですか？"],
-    ["<p><strong>あの建物</strong>は <ruby><strong>病院</strong><rt>びょういん</rt></ruby>ですか、<ruby><strong>学校</strong><rt>がっこう</rt></ruby>ですか？<br>Apakah gedung itu rumah sakit atau sekolah?</p>", "あの建物は 病院ですか、学校ですか？"],  
-    ["<p><strong>この食べ物</strong>は <ruby><strong>肉</strong><rt>にく</rt></ruby>ですか、<ruby><strong>魚</strong><rt>さかな</rt></ruby>ですか？<br>Apakah makanan ini daging atau ikan?</p>", "この食べ物は 肉ですか、魚ですか？"]
+    ["<p><ruby><strong>この飲み物</strong><rt>こののみもの</rt></ruby>は <ruby><strong>コーヒー</strong><rt>こーひー</rt></ruby>ですか、<ruby><strong>お茶</strong><rt>おちゃ</rt></ruby>ですか？<br>Apakah minuman ini kopi atau teh?</p>", "この飲み物は コーヒーですか、お茶ですか？"],
+    ["<p><ruby><strong>その人</strong><rt>そのひと</rt></ruby>は <ruby><strong>学生</strong><rt>がくせい</rt></ruby>ですか、<ruby><strong>先生</strong><rt>せんせい</rt></ruby>ですか？<br>Apakah orang itu murid atau guru?</p>", "その人は 学生ですか、先生ですか？"],
+    ["<p><ruby><strong>あなたの車</strong><rt>あなたのくるま</rt></ruby>は <ruby><strong>赤</strong><rt>あか</rt></ruby>ですか、<ruby><strong>青</strong><rt>あお</rt></ruby>ですか？<br>Apakah mobil Anda merah atau biru?</p>", "あなたの車は 赤ですか、青ですか？"],
+    ["<p><ruby><strong>あの建物</strong><rt>あのたてもの</rt></ruby>は <ruby><strong>病院</strong><rt>びょういん</rt></ruby>ですか、<ruby><strong>学校</strong><rt>がっこう</rt></ruby>ですか？<br>Apakah gedung itu rumah sakit atau sekolah?</p>", "あの建物は 病院ですか、学校ですか？"],  
+    ["<p><ruby><strong>この食べ物</strong><rt>このたべもの</rt></ruby>は <ruby><strong>肉</strong><rt>にく</rt></ruby>ですか、<ruby><strong>魚</strong><rt>さかな</rt></ruby>ですか？<br>Apakah makanan ini daging atau ikan?</p>", "この食べ物は 肉ですか、魚ですか？"]
 ]}
     
+    ],
+    "bab6":[
+        {"jenisPartikel":"Pola Kalimat untuk mengajak atau menawarkan sesuatu kepada orang lain.",
+        "polaKalimat":"Subjek + は + Keterangan + で + Objek + を + Kata Kerja + ませんか/ましょう",
+    "contohKalimat":[
+
+[
+    "<p>レストランで<ruby><rb>昼</rb><rp>(</rp><rt>ひる</rt><rp>)</rp></ruby>ごはんを<ruby><rb>食</rb><rp>(</rp><rt>た</rt><rp>)</rp></ruby>べましょう。<br>Ayo makan siang di restoran.</p>",
+    "レストランで昼ごはんを食べましょう。"
+],
+
+[
+    "<p>カフェでコーヒーを<ruby><rb>飲</rb><rp>(</rp><rt>の</rt><rp>)</rp></ruby>みませんか？<br>Bagaimana kalau kita minum kopi di kafe?</p>",
+    "カフェでコーヒーを飲みませんか？"
+],
+
+[
+    "<p><ruby><rb>駅</rb><rp>(</rp><rt>えき</rt><rp>)</rp></ruby>でレポートを<ruby><rb>書</rb><rp>(</rp><rt>か</rt><rp>)</rp></ruby>きましょう。<br>Ayo menulis laporan di stasiun.</p>",
+    "駅でレポートを書きましょう。 "
+],
+[
+    "<p>スーパーで<ruby><rb>野菜</rb><rp>(</rp><rt>やさい</rt><rp>)</rp></ruby>を<ruby><rb>買</rb><rp>(</rp><rt>か</rt><rp>)</rp></ruby>いませんか？<br>Bagaimana kalau kita membeli sayuran di supermarket?</p>",
+    "スーパーで野菜を買いませんか？ "
+],
+[
+    "<p><ruby><rb>公園</rb><rp>(</rp><rt>こうえん</rt><rp>)</rp></ruby>でサッカーをしましょう。<br>Ayo main sepak bola di taman.</p>",
+    "公園でサッカーをしましょう。 "
+],
+[
+    "<p><ruby><rb>喫茶店</rb><rp>(</rp><rt>きっさてん</rt><rp>)</rp></ruby>で<ruby><rb>紅茶</rb><rp>(</rp><rt>こうちゃ</rt><rp>)</rp></ruby>を<ruby><rb>飲</rb><rp>(</rp><rt>の</rt><rp>)</rp></ruby>みませんか？<br>Bagaimana kalau kita minum teh hitam di kedai kopi?</p>",
+    "喫茶店で紅茶を飲みませんか？ "
+],
+[
+    "<p><ruby><rb>川</rb><rp>(</rp><rt>かわ</rt><rp>)</rp></ruby>で<ruby><rb>魚</rb><rp>(</rp><rt>さかな</rt><rp>)</rp></ruby>を<ruby><rb>撮</rb><rp>(</rp><rt>と</rt><rp>)</rp></ruby>りましょう。<br>Ayo mengambil foto ikan di sungai.</p>",
+    "川で魚を撮りましょう。"
+],
+[
+    "<p><ruby><rb>会社</rb><rp>(</rp><rt>かいしゃ</rt><rp>)</rp></ruby>で<ruby><rb>宿題</rb><rp>(</rp><rt>しゅくだい</rt><rp>)</rp></ruby>をしませんか？<br>Bagaimana kalau kita mengerjakan PR di kantor?</p>",
+    "会社で宿題をしませんか？ "
+],
+[
+    "<p><ruby><rb>本屋</rb><rp>(</rp><rt>ほんや</rt><rp>)</rp></ruby>で<ruby><rb>本</rb><rp>(</rp><rt>ほん</rt><rp>)</rp></ruby>を<ruby><rb>読</rb><rp>(</rp><rt>よ</rt><rp>)</rp></ruby>みましょう。<br>Ayo membaca buku di toko buku.</p>",
+    "本屋で本を読みましょう。 "
+],
+[
+    "<p><ruby><rb>広場</rb><rp>(</rp><rt>ひろば</rt><rp>)</rp></ruby>でテニスをしませんか？<br>Bagaimana kalau kita bermain tenis di alun-alun?</p>",
+    "広場でテニスをしませんか？ "
+],
+[
+    "<p><ruby><rb>居酒屋</rb><rp>(</rp><rt>いざかや</rt><rp>)</rp></ruby>でビールを<ruby><rb>飲</rb><rp>(</rp><rt>の</rt><rp>)</rp></ruby>みましょう。<br>Ayo minum bir di izakaya.</p>",
+    "居酒屋でビールを飲みましょう。 "
+],
+[
+    "<p><ruby><rb>図書館</rb><rp>(</rp><rt>としょかん</rt><rp>)</rp></ruby>で<ruby><rb>手紙</rb><rp>(</rp><rt>てがみ</rt><rp>)</rp></ruby>を<ruby><rb>書</rb><rp>(</rp><rt>か</rt><rp>)</rp></ruby>きませんか？<br>Bagaimana kalau kita menulis surat di perpustakaan?</p>",
+    "図書館で手紙を書きませんか？ "
+],
+[
+    "<p><ruby><rb>駅</rb><rp>(</rp><rt>えき</rt><rp>)</rp></ruby>で<ruby><rb>友達</rb><rp>(</rp><rt>ともだち</rt><rp>)</rp></ruby>に<ruby><rb>会</rb><rp>(</rp><rt>あ</rt><rp>)</rp></ruby>いましょう。<br>Ayo bertemu teman di stasiun.</p>",
+    "駅で友達に会いましょう。 "
+],
+[
+    "<p><ruby><rb>海</rb><rp>(</rp><rt>うみ</rt><rp>)</rp></ruby>で<ruby><rb>魚</rb><rp>(</rp><rt>さかな</rt><rp>)</rp></ruby>を<ruby><rb>見</rb><rp>(</rp><rt>み</rt><rp>)</rp></ruby>ませんか？<br>Bagaimana kalau kita melihat ikan di laut?</p>",
+    "海で魚を見ませんか？"
+]
+
+    ]}
     ]
 }
