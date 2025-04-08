@@ -57,11 +57,13 @@
 
         .content {
             max-width: 600px;
-            margin: 145px auto 0; /* Adjust margin-top for fixed header and nav */
+            margin: 200px auto 0; /* Adjust margin-top for fixed header and nav */
             padding: 1rem;
             background: white;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+
         }
 
         .hidden {
@@ -102,42 +104,43 @@
         }
         
         .toggle-bab {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    margin: 5px 0;
-    background-color: #3498db;
-    color: white;
-    border: none;
-    cursor: pointer;
-    text-align: center;
-    font-size: 16px;
-}
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0;
+        background-color: #3498db;
+        color: white;
+        border: none;
+        cursor: pointer;
+        text-align: center;
+        font-size: 16px;
+        }
 
-.toggle-bab:hover {
-    background-color: #2980b9;
-}
+        .toggle-bab:hover {
+        background-color: #2980b9;
+        }
 
-.vocab-container {
-    margin-left: 10px;
-}
-.flashcard {
-    display: inline-block;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    margin-top: 20px;
-    text-align: center;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    background-color: #f9f9f9;
-    font-size: 18px;
-    margin: 5px;
-}
+        .vocab-container {
+        margin-left: 10px;
+        justify-content: center;
+        }
+        .flashcard {
+        display: inline-block;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        margin-top: 20px;
+        text-align: center;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        background-color: #f9f9f9;
+        font-size: 18px;
+        margin: 5px;
+        }
 
-.modal {
+        .modal {
     position: fixed;
     top: 0;
     left: 0;
@@ -148,9 +151,9 @@
     justify-content: center;
     align-items: center;
     z-index: 1000;
-}
+        }
 
-.modal-content {
+        .modal-content {
     background: white;
     padding: 20px;
     border-radius: 10px;
@@ -166,12 +169,12 @@
     overflow-y: auto;
     max-height: 100vh;
     padding-right: 10px;
-}
+        }
 
-.modal-body {
-}
+        .modal-body {
+        }
 
-.close-button {
+        .close-button {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -179,8 +182,8 @@
     font-size: 24px;
     background-color: #ddd;
     border-radius: 25%;
-}
-.partikel-list {
+        }
+        .partikel-list {
     margin-top: 10px;
     padding: 10px;
     border: 1px solid #ccc;
@@ -189,9 +192,9 @@
     display: flex;
     flex-direction: column;
     gap: 5px;
-}
+        }
 
-.partikel-list button {
+        .partikel-list button {
     padding: 5px 10px;
     border: none;
     background-color: #007bff;
@@ -199,11 +202,25 @@
     cursor: pointer;
     border-radius: 3px;
     transition: background-color 0.3s;
-}
+        }
 
-.partikel-list button:hover {
+        .partikel-list button:hover {
     background-color: #0056b3;
-}
+        }
+
+        .title { font-size: 1.5rem; font-weight: bold; background: #B48EF2; padding: 1rem; color: white; }
+    .menu { display: flex; justify-content: center; gap: 1rem; margin: 1rem 0; }
+    button, select { padding: 0.5rem 1rem; border: none; border-radius: 10px; background-color: #a8fff3; cursor: pointer; }
+    #questionCard { background-color: #a8fff3; padding: 2rem; font-size: 2rem; margin: 1rem auto; width: 80%; border-radius: 20px; }
+    .choices button {
+      display: block;
+      margin: 0.5rem auto;
+      width: 80%;
+      font-size: 1rem;
+    }
+    .correct { background-color: #4CAF50 !important; color: white; }
+    .wrong { background-color: #F44336 !important; color: white; }
+    #nextBtn { display: none; margin-top: 1rem; justify-content: center;justify-items: center;}
 
     </style>
 </head>
@@ -215,7 +232,8 @@
 
         <nav>
             <button onclick="showMenu('vocabularyList')">Materi Partikel</button>
-            <button onclick="showMenu('flashcards')">Flashcard</button>
+            <button onclick="showMenu('flashcards')">Vacabulary</button>
+            <button onclick="showMenu('game')">Flashcard</button>
         </nav>
     </div>
 
@@ -228,12 +246,45 @@
  
 
         <div id="flashcards" class="hidden">
-            <h2>Flashcard</h2>
+            <h2>Vocabulary</h2>
             <div id="flashcardContainer"></div>
+        </div>
+        <div id="game" class="hidden">
+            <select id="babSelector"></select>
+            <div id="progress"></div>
+            <div id="questionCard">Loading...</div>
+            <div class="choices" id="choicesContainer"></div>
+            <button id="nextBtn">Selanjutnya</button>
         </div>
     </div>
 
     <script>
+            window.onload = () => {
+        if (!localStorage.getItem('vocabulary')) {
+        fetch('kosakata.json')
+          .then(response => response.json())
+          .then(data => {
+            localStorage.setItem('vocabulary', JSON.stringify(data));
+            console.log("Data vocabulary dimuat ke localStorage.");
+            location.reload(); // reload supaya langsung pakai data yang sudah disimpan
+          })
+          .catch(error => {
+            console.error("Gagal memuat kosakata.json:", error);
+          });
+        } else {
+        console.log("Vocabulary sudah ada di localStorage.");
+        }
+        };
+
+
+        function showMenu(menu) {
+            document.querySelectorAll('.content > div').forEach(div => div.classList.add('hidden'));
+            document.getElementById(menu).classList.remove('hidden');
+            if (menu === 'vocabularyList') loadVocabulary();
+            if (menu === 'flashcards') loadFlashcards();
+            if (menu === 'game') startGame();
+        }
+
 // Fungsi untuk memuat JSON dan menampilkannya
 function loadVocabulary() {
     fetch("partikel.json") // Mengambil data dari file JSON
@@ -252,13 +303,6 @@ function loadVocabulary() {
         })
         .catch(error => console.error("Error saat memuat JSON:", error));
 }
-        function showMenu(menu) {
-            document.querySelectorAll('.content > div').forEach(div => div.classList.add('hidden'));
-            document.getElementById(menu).classList.remove('hidden');
-            if (menu === 'vocabularyList') loadVocabulary();
-            if (menu === 'flashcards') loadFlashcards();
-        }
-
 
 // Fungsi untuk menampilkan atau menyembunyikan daftar jenis partikel dari bab yang dipilih
 function togglePartikelList(button, partikelList) {
@@ -281,7 +325,6 @@ function togglePartikelList(button, partikelList) {
     
     button.after(partikelContainer);
 }
-
 
 // Fungsi untuk menampilkan modal dengan contoh kalimat
 function showModal(partikel) {
@@ -321,22 +364,7 @@ function speakSentence(text) {
     speechSynthesis.speak(utterance);
 }
 
-
-
-function fetchAndStoreVocabulary() {
-    fetch('kosakata.json')
-        .then(response => response.json())
-        .then(data => {
-            // Simpan data persis seperti di kosakata.json
-            localStorage.setItem('vocabulary', JSON.stringify(data));
-            console.log('Kosakata berhasil disimpan ke localStorage!');
-        })
-        .catch(error => console.error('Gagal mengambil data:', error));
-}
-
 function loadFlashcards() {
-    // Panggil fungsi saat halaman dimuat
-    fetchAndStoreVocabulary();
 
     const vocabData = JSON.parse(localStorage.getItem('vocabulary')) || {};
     const flashcardContainer = document.getElementById('flashcardContainer');
@@ -372,35 +400,142 @@ function loadFlashcards() {
 };
 
 
-            // Loop setiap kosakata dalam bab
-            vocabData[bab].forEach(entry => {
-                const flashcard = document.createElement('div');
-                flashcard.className = 'flashcard';
-                flashcard.textContent = entry[0] || entry[1]; // Kanji jika ada, kalau tidak pakai Hiragana
-                
-                flashcard.onclick = () => {
-                    if (flashcard.textContent === (entry[0] || entry[1])) {
-                        flashcard.textContent = `${entry[1]} - ${entry[2]}`;
-                        
-                        // Tambahkan fitur Text-to-Speech (TTS)
-                        if (entry[2]) {
-                            const utterance = new SpeechSynthesisUtterance(entry[1]);
-                            utterance.lang = 'ja-JP';
-                            utterance.rate = 0.8;
-                            speechSynthesis.speak(utterance);
-                        }
-                    } else {
-                        flashcard.textContent = entry[0] || entry[1];
-                    }
-                };
+let lastOpenedCard = null; // Untuk menyimpan kartu terakhir yang dibuka
 
-                vocabContainer.appendChild(flashcard);
-            });
+vocabData[bab].forEach(entry => {
+    const flashcard = document.createElement('div');
+    flashcard.className = 'flashcard';
+    flashcard.textContent = entry[0] || entry[1];
+
+    flashcard.onclick = () => {
+        const isShowingInitial = flashcard.textContent === (entry[0] || entry[1]);
+
+        // Kalau klik kartu lain, kembalikan kartu sebelumnya ke tampilan awal
+        if (lastOpenedCard && lastOpenedCard !== flashcard) {
+            const prevEntry = lastOpenedCard.entryData;
+            lastOpenedCard.textContent = prevEntry[0] || prevEntry[1];
+        }
+
+        if (isShowingInitial) {
+            flashcard.textContent = `${entry[1]} - ${entry[2]}`;
+
+            if (entry[2]) {
+                const utterance = new SpeechSynthesisUtterance(entry[1]);
+                utterance.lang = 'ja-JP';
+                utterance.rate = 0.8;
+                speechSynthesis.speak(utterance);
+            }
+
+            lastOpenedCard = flashcard;
+            flashcard.entryData = entry; // simpan data untuk bisa mengembalikan nanti
+        } else {
+            flashcard.textContent = entry[0] || entry[1];
+            lastOpenedCard = null;
+        }
+    };
+
+    vocabContainer.appendChild(flashcard);
+});
+
         });
     }
 }
 
+const rawData = JSON.parse(localStorage.getItem("vocabulary"));
+    let currentBab = "bab1";
+    let questions = [];
+    let currentIndex = 0;
+    let correctAnswer = "";
+    let score = 0;
 
+    const babSelector = document.getElementById("babSelector");
+    const questionCard = document.getElementById("questionCard");
+    const choicesContainer = document.getElementById("choicesContainer");
+    const nextBtn = document.getElementById("nextBtn");
+    const progress = document.getElementById("progress");
+
+    // Inisialisasi bab
+    Object.keys(rawData).forEach(bab => {
+      const opt = document.createElement("option");
+      opt.value = bab;
+      opt.textContent = bab.toUpperCase();
+      babSelector.appendChild(opt);
+    });
+
+    babSelector.addEventListener("change", () => {
+      currentBab = babSelector.value;
+      startGame();
+    });
+
+    function startGame() {
+      questions = shuffle([...rawData[currentBab]]);
+      currentIndex = 0;
+      score = 0;
+      showQuestion();
+    }
+
+    function showQuestion() {
+      if (currentIndex >= questions.length) {
+        questionCard.textContent = "Selesai! Skor benar: " + score + " dari " + questions.length;
+        choicesContainer.innerHTML = "";
+        nextBtn.style.display = "none";
+        return;
+      }
+
+      const q = questions[currentIndex];
+      const kanji = q[0] || q[1];
+      speak = q[1]
+      correctAnswer = q[2];
+
+      questionCard.textContent = kanji;
+      progress.textContent = `${currentIndex + 1} / ${questions.length}`;
+
+      // siapkan pilihan
+      const allChoices = getRandomChoices(rawData[currentBab], correctAnswer);
+      choicesContainer.innerHTML = "";
+      allChoices.forEach(choice => {
+        const btn = document.createElement("button");
+        btn.textContent = choice;
+        btn.onclick = () => handleAnswer(btn, choice);
+        choicesContainer.appendChild(btn);
+      });
+    }
+
+    function handleAnswer(button, choice) {
+      const buttons = document.querySelectorAll(".choices button");
+      buttons.forEach(btn => btn.disabled = true);
+      if (choice === correctAnswer) {
+        button.classList.add("correct");
+        score++;
+      } else {
+        button.classList.add("wrong");
+        buttons.forEach(btn => {
+          if (btn.textContent === correctAnswer) {
+            btn.classList.add("correct");
+          }
+        });
+      }
+      nextBtn.style.display = "block";
+      speakSentence(speak)
+      console.log(speak)
+    }
+
+    nextBtn.onclick = () => {
+      currentIndex++;
+      nextBtn.style.display = "none";
+      showQuestion();
+    };
+
+    function getRandomChoices(data, correct) {
+      const otherChoices = shuffle(data.filter(item => item[2] !== correct))
+        .slice(0, 3)
+        .map(item => item[2]);
+      return shuffle([correct, ...otherChoices]);
+    }
+
+    function shuffle(arr) {
+      return arr.sort(() => Math.random() - 0.5);
+    }
     </script>
 </body>
 </html>
