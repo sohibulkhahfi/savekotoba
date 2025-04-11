@@ -250,11 +250,23 @@
             <div id="flashcardContainer"></div>
         </div>
         <div id="game" class="hidden">
-            <select id="babSelector"></select>
+            <div>
+                <select id="babSelector"></select>
+                <button id="lihatDaftarBtn">📋 Lihat Daftar</button>
+            </div>
             <div id="progress"></div>
             <div id="questionCard">Loading...</div>
             <div class="choices" id="choicesContainer"></div>
             <button id="nextBtn">Selanjutnya</button>
+
+            <div id="modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; 
+            background-color: rgba(0,0,0,0.5); z-index:1000; justify-content:center; align-items:center;">
+                <div style="background:white; padding:2rem; border-radius:15px; max-width:90%; max-height:80%; overflow:auto;">
+                <h2>Daftar Kanji - <span id="modalBabTitle"></span></h2>
+                <ul id="modalList" style="text-align:left; line-height: 2;"></ul>
+                <button onclick="document.getElementById('modal').style.display='none'">Tutup</button>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -536,6 +548,22 @@ const rawData = JSON.parse(localStorage.getItem("vocabulary"));
     function shuffle(arr) {
       return arr.sort(() => Math.random() - 0.5);
     }
+
+    document.getElementById("lihatDaftarBtn").onclick = () => {
+  const listElement = document.getElementById("modalList");
+  const modalBabTitle = document.getElementById("modalBabTitle");
+  const data = rawData[currentBab];
+  listElement.innerHTML = "";
+  modalBabTitle.textContent = currentBab.toUpperCase();
+
+  data.forEach(item => {
+    const li = document.createElement("li");
+    li.textContent = `${item[0]} - ${item[1]} (${item[2]})`;
+    listElement.appendChild(li);
+  });
+
+  document.getElementById("modal").style.display = "flex";
+};
     </script>
 </body>
 </html>
