@@ -171,9 +171,6 @@
     padding-right: 10px;
         }
 
-        .modal-body {
-        }
-
         .close-button {
     position: absolute;
     top: 10px;
@@ -221,6 +218,17 @@
     .correct { background-color: #4CAF50 !important; color: white; }
     .wrong { background-color: #F44336 !important; color: white; }
     #nextBtn { display: none; margin-top: 1rem; justify-content: center;justify-items: center;}
+
+    .kanji-main {
+  display: block;
+  font-size: 2rem;
+}
+
+.kanji-sub {
+  font-size: 0.8rem;
+  color: #555;
+}
+
 
     </style>
 </head>
@@ -499,7 +507,10 @@ const rawData = JSON.parse(localStorage.getItem("vocabulary"));
       speak = q[1]
       correctAnswer = q[2];
 
-      questionCard.textContent = kanji;
+      questionCard.innerHTML = `
+  <span class="kanji-main">${kanji}</span>
+  ${(kanji === q[1]) ? "" : `<div class="kanji-sub">(${q[1]})</div>`}
+`;
       progress.textContent = `${currentIndex + 1} / ${questions.length}`;
 
       // siapkan pilihan
