@@ -239,9 +239,9 @@
         </header>
 
         <nav>
-            <button onclick="showMenu('vocabularyList')">Materi Partikel</button>
+            <button onclick="showMenu('vocabularyList')" style="display: none;">Materi Partikel</button>
             <button onclick="showMenu('flashcards')">Vacabulary</button>
-            <button onclick="showMenu('game')">Flashcard</button>
+            <button onclick="showMenu('game')">Quiz</button>
         </nav>
     </div>
 
@@ -278,6 +278,7 @@
         </div>
     </div>
 
+    <script src="kosakata.js"></script>
     <script>
             window.onload = () => {
         if (!localStorage.getItem('vocabulary')) {
@@ -287,11 +288,13 @@
             localStorage.setItem('vocabulary', JSON.stringify(data));
             console.log("Data vocabulary dimuat ke localStorage.");
             location.reload(); // reload supaya langsung pakai data yang sudah disimpan
+            showMenu('flashcards')
           })
           .catch(error => {
             console.error("Gagal memuat kosakata.json:", error);
           });
         } else {
+        showMenu('flashcards')
         console.log("Vocabulary sudah ada di localStorage.");
         }
         };
@@ -386,7 +389,7 @@ function speakSentence(text) {
 
 function loadFlashcards() {
 
-    const vocabData = JSON.parse(localStorage.getItem('vocabulary')) || {};
+    const vocabData = Kosakata
     const flashcardContainer = document.getElementById('flashcardContainer');
     flashcardContainer.innerHTML = '';
 
