@@ -93,22 +93,22 @@ const Kosakata = {
             [
                 "",
                 "どなた",
-                "どなた adalah bentuk sopan dari だれ"
+                "bentuk sopan dari siapa"
             ],
             [
-                "才",
+                "歳",
                 "さい",
                 "~ tahun"
             ],
             [
-                "何才",
+                "何歳",
                 "なんさい",
                 "umur berapa"
             ],
             [
                 "",
                 "おいくつ",
-                "おいくつ adalah bentuk sopan dari なんさい"
+                "bentuk sopan menanyakan umur"
             ],
             [
                 "",
@@ -175,32 +175,32 @@ const Kosakata = {
             [
                 "",
                 "これ",
-                "ini (benda yang ada di\ndakat si pembicara)"
+                "ini (benda)"
             ],
             [
                 "",
                 "それ",
-                "itu (benda yang ada di\ndakat lawan bicara)"
+                "itu (benda)"
             ],
             [
                 "",
                 "あれ",
-                "itu (benda yang ada jauh\ndari si pembicara dan lawan bicara)"
+                "itu (benda)"
             ],
             [
                 "",
                 "この〜",
-                "~ ini (menerangkan benda\natau orang yang ada di dekat si pembicara.)"
+                "~ ini (menerangkan benda)"
             ],
             [
                 "",
                 "その〜",
-                "~ itu (menerangkan benda\natau orang yang ada didekat lawan bicara.)"
+                "~ itu (menerangkan benda)"
             ],
             [
                 "",
                 "あの〜",
-                "~ itu (menerangkan benda\natau orang yang ada jauh daru si\npembicara dan lawan bicara)"
+                "~ itu (menerangkan benda)"
             ],
             [
                 "本",
@@ -357,17 +357,17 @@ const Kosakata = {
             [
                 "",
                 "ここ",
-                "sini"
+                "di sini"
             ],
             [
                 "",
                 "そこ",
-                "situ"
+                "di situ"
             ],
             [
                 "",
                 "あそこ",
-                "sana"
+                "di sana"
             ],
             [
                 "",
@@ -377,22 +377,22 @@ const Kosakata = {
             [
                 "",
                 "こちら",
-                "sini (bentuk sopan dari ここ)"
+                "bentuk sopan di sini"
             ],
             [
                 "",
                 "そちら",
-                "situ (bentuk sopan dari そこ)"
+                "bentuk sopan di situ"
             ],
             [
                 "",
                 "あちら",
-                "sana (bentuk sopan dari あそこ)"
+                "bentuk sopan di sana"
             ],
             [
                 "",
                 "どちら",
-                "mana (bentuk sopan dari どこ)"
+                "bentuk sopan di mana"
             ],
             [
                 "教室",

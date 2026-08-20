@@ -18,6 +18,12 @@
                 opt.value = bab;
                 opt.textContent = bab.toUpperCase();
                 babSelector.appendChild(opt);
+                const quizHiraganaToggle = document.getElementById("quizHiraganaToggle");
+                    if (quizHiraganaToggle) {
+                    quizHiraganaToggle.addEventListener("change", () => {
+                    showQuestion(); // Perbarui tampilan soal saat checkbox diubah
+                    });
+                    }
             });
 
             showMenu('flashcards');
@@ -167,34 +173,45 @@
         }
 
         function showQuestion() {
-            if (currentIndex >= questions.length) {
-                questionCard.textContent = "Selesai! Skor benar: " + score + " dari " + questions.length;
-                choicesContainer.innerHTML = "";
-                nextBtn.style.display = "none";
-                return;
-            }
+    if (currentIndex >= questions.length) {
+        questionCard.textContent = "Selesai! Skor benar: " + score + " dari " + questions.length;
+        choicesContainer.innerHTML = "";
+        nextBtn.style.display = "none";
+        return;
+    }
 
-            const q = questions[currentIndex];
-            const kanji = q[0] || q[1];
-            speak = q[1];
-            correctAnswer = q[2];
+    const q = questions[currentIndex];
+    const kanji = q[0] || q[1];
+    speak = q[1];
+    correctAnswer = q[2];
 
-            questionCard.innerHTML = `
-                <span class="kanji-main">${kanji}</span>
-                ${(kanji === q[1]) ? "" : `<div class="kanji-sub">(${q[1]})</div>`}
-            `;
-            progress.textContent = `${currentIndex + 1} / ${questions.length}`;
+    // --- UBAH BAGIAN INI ---
+    const showHiraQuiz = document.getElementById("quizHiraganaToggle")?.checked ?? true;
+    
+    let cardHTML = `<span class="kanji-main">${kanji}</span>`;
+    
+    // Tampilkan hiragana di bawah kanji jika checkbox aktif dan karakter kanji berbeda dari hiragana
+    if (q[0] && showHiraQuiz) {
+        cardHTML += `<div class="kanji-sub">(${q[1]})</div>`;
+    } else if (!q[0]) {
+        // Jika soal memang hanya berupa hiragana (tidak ada kanji), tetap tampilkan
+        cardHTML = `<span class="kanji-main">${q[1]}</span>`;
+    }
+    
+    questionCard.innerHTML = cardHTML;
+    // -----------------------
 
-            const allChoices = getRandomChoices(rawData[currentBab], correctAnswer);
-            choicesContainer.innerHTML = "";
-            allChoices.operation = true;
-            allChoices.forEach(choice => {
-                const btn = document.createElement("button");
-                btn.textContent = choice;
-                btn.onclick = () => handleAnswer(btn, choice);
-                choicesContainer.appendChild(btn);
-            });
-        }
+    progress.textContent = `${currentIndex + 1} / ${questions.length}`;
+
+    const allChoices = getRandomChoices(rawData[currentBab], correctAnswer);
+    choicesContainer.innerHTML = "";
+    allChoices.forEach(choice => {
+        const btn = document.createElement("button");
+        btn.textContent = choice;
+        btn.onclick = () => handleAnswer(btn, choice);
+        choicesContainer.appendChild(btn);
+    });
+}
 
         function handleAnswer(button, choice) {
             const buttons = document.querySelectorAll(".choices button");
