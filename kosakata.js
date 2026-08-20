@@ -18,7 +18,7 @@ const Kosakata = {
             [
                 "あの方",
                 "あのかた",
-                "あのかた adalah bentuk sopan dari あのひと"
+                "bentuk sopan orang itu / beliau"
             ],
             [
                 "",
@@ -28,7 +28,7 @@ const Kosakata = {
             [
                 "",
                 "〜ちゃん",
-                "(akhiran yang dipakai untuk anak\nlakilaki dan anak perempuan sebagai\npengganti ~さん yang diletakkan di belakang nama anak)"
+                "akhiran yang dipakai untuk anak-anak pengganti ~さん"
             ],
             [
                 "〜人",
