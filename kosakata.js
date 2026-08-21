@@ -4516,5 +4516,1250 @@ const Kosakata = {
                 "頑張ります",
                 "berusaha"
             ]
+        ],
+        "bab26": [
+        [
+            "診る",
+            "みます",
+            "Periksa"
+        ],
+        [
+            "探す",
+            "さがします",
+            "Mencari"
+        ],
+        [
+            "遅れる",
+            "おくれます［じかんに～］",
+            "terlambat [ pertemuan, dll]"
+        ],
+        [
+            "間に合う",
+            "まにあいます［じかんに～",
+            "Sempat/tepat waktu [pertemuan, dll]"
+        ],
+        [
+            "遣る",
+            "やります",
+            "Melakukan"
+        ],
+        [
+            "参加する",
+            "さんかします［パーティーに］",
+            "Partisipasi, menghadiri"
+        ],
+        [
+            "申し込む",
+            "もうしこみます",
+            "Mendaftarkan diri"
+        ],
+        [
+            "都合がいい",
+            "つごうがいい",
+            "nyaman (mengenai waktu)"
+        ],
+        [
+            "都合が悪い",
+            "つごうがわるい",
+            "Tidak nyaman (mengenai waktu)"
+        ],
+        [
+            "気分がいい",
+            "きぶんがいい",
+            "Perasaan enak"
+        ],
+        [
+            "気分が悪い",
+            "きぶんがわるい",
+            "Perasaan kurang baik"
+        ],
+        [
+            "新聞社",
+            "しんぶんしゃ",
+            "koran perusahaan penerbitan, kantor surat kabar"
+        ],
+        [
+            "柔道",
+            "じゅうどう",
+            "Judo"
+        ],
+        [
+            "運動会",
+            "うんどうかい",
+            "Festival olahraga"
+        ],
+        [
+            "場所",
+            "ばしょ",
+            "Tempat"
+        ],
+        [
+            "ボランティア",
+            "ボランティア",
+            "Sukarelawan"
+        ],
+        [
+            "～弁",
+            "～べん",
+            "Dialek / logat"
+        ],
+        [
+            "今度",
+            "こんど",
+            "kali, lain waktu"
+        ],
+        [
+            "ずいぶん",
+            "ずいぶん",
+            "Cukup/ lumayan"
+        ],
+        [
+            "直接",
+            "ちょくせつ",
+            "Langsung"
+        ],
+        [
+            "いつでも",
+            "いつでも",
+            "setiap saat/ kapanpun"
+        ],
+        [
+            "どこでも",
+            "どこでも",
+            "Dimanapun"
+        ],
+        [
+            "だれでも",
+            "だれでも",
+            "siapa saja"
+        ],
+        [
+            "何でも",
+            "なんでも",
+            "apa pun"
+        ],
+        [
+            "こんな～",
+            "こんな～",
+            "~ Seperti ini"
+        ],
+        [
+            "そんな～",
+            "そんな～",
+            "~ Seperti itu (dekat pendengar)"
+        ],
+        [
+            "あんな～",
+            "あんな～",
+            "~ Seperti itu (jauh dari kedua pembicara dan pendengar)"
+        ],
+        [
+            "方づく",
+            "かたづきます［にもつが～］",
+            "Merapihkan ( barang )"
+        ],
+        [
+            "ごみ",
+            "ごみ",
+            "Sampah"
+        ],
+        [
+            "出す",
+            "だします［ごみを～］",
+            "Mengeluarkan/ membuang [sampah]"
+        ],
+        [
+            "燃える",
+            "もえます［ごみが～］",
+            "[Sampah] bisa dibakar"
+        ],
+        [
+            "月・水・金",
+            "げつ・すい・きん",
+            "Senin, Rabu dan Jumat"
+        ],
+        [
+            "置き場",
+            "おきば",
+            "tempat menyimpan/ meletakan sesuatu"
+        ],
+        [
+            "横",
+            "よこ",
+            "Sisi/ samping"
+        ],
+        [
+            "瓶",
+            "びん",
+            "Botol kaca"
+        ],
+        [
+            "缶",
+            "かん",
+            "Kaleng"
+        ],
+        [
+            "［お］湯",
+            "おゆ",
+            "air panas"
+        ],
+        [
+            "ガス",
+            "ガス",
+            "Gas"
+        ],
+        [
+            "～会社",
+            "～かいしゃ",
+            "~ perusahaan"
+        ],
+        [
+            "連絡する",
+            "れんらくします",
+            "Laporan/ menghubungi"
+        ],
+        [
+            "困ったなあ",
+            "こまったなあ",
+            "Sulit! (ekspresi)Apa yang harus saya lakukan?"
+        ],
+        [
+            "読み物",
+            "よみもの",
+            "Bacaan"
+        ],
+        [
+            "電子メール",
+            "でんしメール",
+            "Surat elektronik"
+        ],
+        [
+            "宇宙",
+            "うちゅう",
+            "Ruang Angkasa"
+        ],
+        [
+            "怖い",
+            "こわい",
+            "Takut"
+        ],
+        [
+            "宇宙船",
+            "うちゅうせん",
+            "kapal angkasa"
+        ],
+        [
+            "別の",
+            "べつの",
+            "Lain"
+        ],
+        [
+            "宇宙飛行士",
+            "うちゅうひこうし",
+            "Astronaut"
         ]
+    ],
+    "bab27": [
+        [
+            "飼う",
+            "かいます",
+            "memelihara"
+        ],
+        [
+            "建てる",
+            "たてます",
+            "membangun"
+        ],
+        [
+            "走る",
+            "はしります［みちを～］",
+            "berlari ( ~ dijalan )"
+        ],
+        [
+            "取る",
+            "とります［やすみを～］",
+            "Mengambil ( ~ istirahat )"
+        ],
+        [
+            "見える",
+            "みえます［やまが～］",
+            "Terlihat ( gunung nya ~ )"
+        ],
+        [
+            "聞こえる",
+            "きこえます［おとが～］",
+            "Terdengar ( Suara nya ~ )"
+        ],
+        [
+            "できる",
+            "できます［くうこうが～］",
+            "Jadi /selesai dibuat ( Bandara nya ~ )"
+        ],
+        [
+            "開く",
+            "ひらきます［きょうしつを～］",
+            "Terbuka [~ kelas]"
+        ],
+        [
+            "ペット",
+            "ペット",
+            "( hewan ) peliharaan"
+        ],
+        [
+            "鳥",
+            "とり",
+            "burung"
+        ],
+        [
+            "声",
+            "こえ",
+            "suara ( manusia & binatang )"
+        ],
+        [
+            "波",
+            "なみ",
+            "gelombang"
+        ],
+        [
+            "花火",
+            "はなび",
+            "kembang api"
+        ],
+        [
+            "景色",
+            "けしき",
+            "pemandangan"
+        ],
+        [
+            "昼間",
+            "ひるま",
+            "Siang hari"
+        ],
+        [
+            "昔",
+            "むかし",
+            "masa lalu"
+        ],
+        [
+            "道具",
+            "どうぐ",
+            "alat"
+        ],
+        [
+            "自動販売機",
+            "じどうはんばいき",
+            "mesin penjual otomatis"
+        ],
+        [
+            "通信販売",
+            "つうしんはんばい",
+            "Pesan antar"
+        ],
+        [
+            "クリーニング",
+            "クリーニング",
+            "Laundri"
+        ],
+        [
+            "マンション",
+            "マンション",
+            "Apartemen"
+        ],
+        [
+            "台所",
+            "だいどころ",
+            "dapur"
+        ],
+        [
+            "～教室",
+            "～きょうしつ",
+            "Kelas ~"
+        ],
+        [
+            "パーティールーム",
+            "パーティールーム",
+            "Ruang Pesta"
+        ],
+        [
+            "～後",
+            "～ご",
+            "setelah ~"
+        ],
+        [
+            "～しか",
+            "～しか",
+            "hanya ~"
+        ],
+        [
+            "ほかの",
+            "ほかの",
+            "Lainnya, sebagai tambahan"
+        ],
+        [
+            "はっきり",
+            "はっきり",
+            "jelas"
+        ],
+        [
+            "ほとんど",
+            "ほとんど",
+            "Hampir"
+        ],
+        [
+            "関西空港",
+            "かんさいくうこう",
+            "Bandara Kansai"
+        ],
+        [
+            "秋葉原",
+            "あきはばら",
+            "Akihabara"
+        ],
+        [
+            "日曜大工",
+            "にちようだいく",
+            "Do It Yourself ( lakukan sendiri dihari minggu )"
+        ],
+        [
+            "本棚",
+            "ほんだな",
+            "Rak buku"
+        ],
+        [
+            "夢",
+            "ゆめ",
+            "mimpi"
+        ],
+        [
+            "いつか",
+            "いつか",
+            "suatu saat/waktu"
+        ],
+        [
+            "家",
+            "いえ",
+            "Rumah"
+        ],
+        [
+            "すばらしい",
+            "すばらしい",
+            "Luar biasa/ bagus/ Mantap"
+        ],
+        [
+            "子どもたち",
+            "こどもたち",
+            "anak-anak"
+        ],
+        [
+            "大好き［な］",
+            "だいすき［な］",
+            "Favorit / kesukaan"
+        ],
+        [
+            "漫画",
+            "まんが",
+            "komik"
+        ],
+        [
+            "主人公",
+            "しゅじんこう",
+            "Pemeran utama"
+        ],
+        [
+            "形",
+            "かたち",
+            "bentuk"
+        ],
+        [
+            "ロボット",
+            "ロボット",
+            "robot"
+        ],
+        [
+            "不思議",
+            "ふしぎ",
+            "Misteri, aneh"
+        ],
+        [
+            "ポケット",
+            "ポケット",
+            "Kantong, saku"
+        ],
+        [
+            "例えば",
+            "たとえば",
+            "sebagai contoh, misal"
+        ],
+        [
+            "付ける",
+            "つけます",
+            "mengenakan, mengaitkan, menyalakan"
+        ],
+        [
+            "自由に",
+            "じゆうに",
+            "bebas"
+        ],
+        [
+            "空",
+            "そら",
+            "Langit"
+        ],
+        [
+            "飛ぶ",
+            "とびます",
+            "terbang"
+        ],
+        [
+            "自分",
+            "じぶん",
+            "diri sendiri"
+        ],
+        [
+            "将来",
+            "しょうらい",
+            "masa depan"
+        ],
+        [
+            "ドラえもん",
+            "ドラえもん",
+            "Doraemon"
+        ]
+    ],
+    "bab28": [
+        [
+            "売れる",
+            "うれます［パンが～］",
+            "terjual ( rotinya ~ )"
+        ],
+        [
+            "踊る",
+            "おどります",
+            "menari"
+        ],
+        [
+            "噛む",
+            "かみます",
+            "Menguyah, gigit"
+        ],
+        [
+            "選ぶ",
+            "えらびます",
+            "Memilih"
+        ],
+        [
+            "違う",
+            "ちがいます",
+            "Salah, beda"
+        ],
+        [
+            "通う",
+            "かよいます［だいがくに～］",
+            "Menjalankan aktifitas rutin/pergi - pulang (~ kuliah )"
+        ],
+        [
+            "メモする",
+            "メモします",
+            "Buat catatan"
+        ],
+        [
+            "まじめ［な］",
+            "まじめ［な］",
+            "Serius"
+        ],
+        [
+            "熱心［な］",
+            "ねっしん［な］",
+            "Antusias, membara"
+        ],
+        [
+            "優しい",
+            "やさしい",
+            "Ramah, penyayang"
+        ],
+        [
+            "偉い",
+            "えらい",
+            "hebat ( berjiwa besar )"
+        ],
+        [
+            "丁度いい",
+            "ちょうどいい",
+            "pas"
+        ],
+        [
+            "習慣",
+            "しゅうかん",
+            "Kebiasaan"
+        ],
+        [
+            "経験",
+            "けいけん",
+            "pengalaman"
+        ],
+        [
+            "力",
+            "ちから",
+            "Kekuatan, tenaga"
+        ],
+        [
+            "人気",
+            "にんき",
+            "Populer"
+        ],
+        [
+            "形",
+            "かたち",
+            "bentuk"
+        ],
+        [
+            "色",
+            "いろ",
+            "warna"
+        ],
+        [
+            "味",
+            "あじ",
+            "rasa"
+        ],
+        [
+            "ガム",
+            "ガム",
+            "Permen karet"
+        ],
+        [
+            "品物",
+            "しなもの",
+            "barang"
+        ],
+        [
+            "値段",
+            "ねだん",
+            "harga"
+        ],
+        [
+            "給料",
+            "きゅうりょう",
+            "gaji"
+        ],
+        [
+            "ボーナス",
+            "ボーナス",
+            "bonus"
+        ],
+        [
+            "番組",
+            "ばんぐみ",
+            "Acara tv/ program"
+        ],
+        [
+            "ドラマ",
+            "ドラマ",
+            "Drama"
+        ],
+        [
+            "小説",
+            "しょうせつ",
+            "novel"
+        ],
+        [
+            "小説家",
+            "しょうせつか",
+            "Novelis"
+        ],
+        [
+            "歌手",
+            "かしゅ",
+            "penyanyi"
+        ],
+        [
+            "管理人",
+            "かんりにん",
+            "Pengelola"
+        ],
+        [
+            "息子",
+            "むすこ",
+            "Putra/anak laki2 ( anak sendiri )"
+        ],
+        [
+            "息子さん",
+            "むすこさん",
+            "Putra/anak laki2 ( anak orang lain )"
+        ],
+        [
+            "娘",
+            "むすめ",
+            "Putri/ anak perempuan ( anak sendiri)"
+        ],
+        [
+            "娘さん",
+            "むすめさん",
+            "Putri/ anak perempuan ( anak orang lain)"
+        ],
+        [
+            "自分",
+            "じぶん",
+            "Diri sendiri"
+        ],
+        [
+            "将来",
+            "しょうらい",
+            "masa depan"
+        ],
+        [
+            "暫く",
+            "しばらく",
+            "sejenak, sebentar"
+        ],
+        [
+            "大抵",
+            "たいてい",
+            "biasanya"
+        ],
+        [
+            "それに",
+            "それに",
+            "Lagi pula, selain itu, dan juga"
+        ],
+        [
+            "それで",
+            "それで",
+            "dengan begitu"
+        ],
+        [
+            "お願いがあるんです",
+            "おねがいが あるんです",
+            "( maaf ) sebenarnya, ada sedikit permohonan.."
+        ],
+        [
+            "ホームステイ",
+            "ホームステイ",
+            "Rumah singgah"
+        ],
+        [
+            "会話",
+            "かいわ",
+            "percakapan"
+        ],
+        [
+            "お喋りする",
+            "おしゃべりします",
+            "Berkata-kata"
+        ],
+        [
+            "お知らせ",
+            "おしらせ",
+            "Pengumuman, pemberitahuan"
+        ],
+        [
+            "日にち",
+            "ひにち",
+            "tanggal"
+        ],
+        [
+            "土",
+            "ど",
+            "Sabtu"
+        ],
+        [
+            "体育館",
+            "たいいくかん",
+            "Gedung Olah Raga"
+        ],
+        [
+            "無料",
+            "むりょう",
+            "Gratis"
+        ]
+    ],
+    "bab29": [
+        [
+            "開く",
+            "あきます［ドアが～］",
+            "Terbuka ( pintunya ~ )"
+        ],
+        [
+            "閉まる",
+            "しまります［ドアが～］",
+            "Tertutup ( pintunya ~ )"
+        ],
+        [
+            "点く",
+            "つきます［でんきが～］",
+            "Menyala ( lampunya ~ )"
+        ],
+        [
+            "消える",
+            "きえます［でんきが～］",
+            "Mati / menghilang ( lampunya ~ )"
+        ],
+        [
+            "込む",
+            "こみます［みちが～］",
+            "Macet ( jalanan ~ )"
+        ],
+        [
+            "空く",
+            "すきます［みちが～］",
+            "Kosong / lancar ( jalanan ~ )"
+        ],
+        [
+            "壊れる",
+            "こわれます［いすが～］",
+            "Rusak ( kursi nya ~ )"
+        ],
+        [
+            "割れる",
+            "われます［カップが～］",
+            "retak/pecah ( gelas nya ~ )"
+        ],
+        [
+            "折れる",
+            "おれます［きが～］",
+            "Patah ( pohon nya ~ )"
+        ],
+        [
+            "破れる",
+            "やぶれます［かみが～］",
+            "robek/sobek ( kertas nya ~ )"
+        ],
+        [
+            "汚れる",
+            "よごれます［ふくが～］",
+            "Ternodai / kotor ( pakaian nya ~ )"
+        ],
+        [
+            "付く",
+            "つきます［ポケットが～］",
+            "terpasang ( katong nya ~ )"
+        ],
+        [
+            "外れる",
+            "はずれます［ボタンが～］",
+            "Lepas /copot ( kancing nya ~ )"
+        ],
+        [
+            "止まる",
+            "とまります［エレベーターが～］",
+            "berhenti"
+        ],
+        [
+            "間違える",
+            "まちがえます",
+            "kesalahan"
+        ],
+        [
+            "落す",
+            "おとします",
+            "Penurunan"
+        ],
+        [
+            "掛かる",
+            "かかります［かぎが～］",
+            "menggantungkan ( mengunci )"
+        ],
+        [
+            "［お］皿",
+            "［お］さら",
+            "Piring"
+        ],
+        [
+            "［お］茶碗",
+            "［お］ちゃわん",
+            "Mangkuk"
+        ],
+        [
+            "コップ",
+            "コップ",
+            "Cangkir"
+        ],
+        [
+            "ガラス",
+            "ガラス",
+            "Kaca"
+        ],
+        [
+            "袋",
+            "ふくろ",
+            "Kantong plastik"
+        ],
+        [
+            "財布",
+            "さいふ",
+            "dompet"
+        ],
+        [
+            "枝",
+            "えだ",
+            "cabang"
+        ],
+        [
+            "駅員",
+            "えきいん",
+            "Petugas Stasiun"
+        ],
+        [
+            "この辺",
+            "このへん",
+            "Di sekitar sini"
+        ],
+        [
+            "～辺",
+            "～へん",
+            "sebelah/sekitaran ~"
+        ],
+        [
+            "このくらい",
+            "このくらい",
+            "Sebanyak ini"
+        ],
+        [
+            "お先にどうぞ",
+            "おさきにどうぞ",
+            "Silahkan duluan"
+        ],
+        [
+            "［ああ、］良かった",
+            "［ああ、］よかった",
+            "[ oh.. ] syukurlah"
+        ],
+        [
+            "今の電車",
+            "いまのでんしゃ",
+            "Kereta sekarang"
+        ],
+        [
+            "忘れ物",
+            "わすれもの",
+            "Barang tertinggal ( lupa )"
+        ],
+        [
+            "～側",
+            "～がわ",
+            "Sisi ~"
+        ],
+        [
+            "ポケット",
+            "ポケット",
+            "Kantong, saku"
+        ],
+        [
+            "覚えていません",
+            "おぼえていません",
+            "Tidak ingat"
+        ],
+        [
+            "網棚",
+            "あみだな",
+            "bagasi"
+        ],
+        [
+            "確か",
+            "たしか",
+            "Semestinya, memang seperti demikian"
+        ],
+        [
+            "地震",
+            "じしん",
+            "gempa bumi"
+        ],
+        [
+            "壁",
+            "かべ",
+            "dinding"
+        ],
+        [
+            "針",
+            "はり",
+            "jarum"
+        ],
+        [
+            "指す",
+            "さします",
+            "Menunjuk"
+        ],
+        [
+            "駅前",
+            "えきまえ",
+            "Depan Stasiun"
+        ],
+        [
+            "西",
+            "にし",
+            "Barat"
+        ],
+        [
+            "方",
+            "ほう",
+            "Cara"
+        ]
+    ],
+    "bab30": [
+        [
+            "貼る",
+            "はります",
+            "Menempel"
+        ],
+        [
+            "掛ける",
+            "かけます",
+            "Mengaitkan/menggantungkan"
+        ],
+        [
+            "飾る",
+            "かざります",
+            "menghias"
+        ],
+        [
+            "並べる",
+            "ならべます",
+            "Berbaris"
+        ],
+        [
+            "植える",
+            "うえる",
+            "Menanam"
+        ],
+        [
+            "戻す",
+            "もどします",
+            "mengembalikan"
+        ],
+        [
+            "纏める",
+            "まとめます",
+            "Mengumpulkan"
+        ],
+        [
+            "片付ける",
+            "かたづけます",
+            "Merapikan"
+        ],
+        [
+            "仕舞う",
+            "しまいます",
+            "Menyimpan, merapikan"
+        ],
+        [
+            "決める",
+            "きめます",
+            "Memutuskan"
+        ],
+        [
+            "知らせる",
+            "しらせます",
+            "memberitahu, mengumumkan"
+        ],
+        [
+            "相談する",
+            "そうだんします",
+            "Berkonsultasi"
+        ],
+        [
+            "予習する",
+            "よしゅうします",
+            "untuk persiapan"
+        ],
+        [
+            "復習する",
+            "ふくしゅうします",
+            "Ulasan, evaluasi"
+        ],
+        [
+            "そのままにする",
+            "そのままにする",
+            "biarkan seperti itu"
+        ],
+        [
+            "お子さん",
+            "おこさん",
+            "Anak ( orang lain )"
+        ],
+        [
+            "授業",
+            "じゅぎょう",
+            "Pelajaran"
+        ],
+        [
+            "講義",
+            "こうぎ",
+            "kuliah"
+        ],
+        [
+            "ミーティング",
+            "ミーティング",
+            "pertemuan"
+        ],
+        [
+            "予定",
+            "よてい",
+            "rencana"
+        ],
+        [
+            "お知らせ",
+            "おしらせ",
+            "Mengumumkan"
+        ],
+        [
+            "案内書",
+            "あんないしょ",
+            "Panduan, buku petunjuk"
+        ],
+        [
+            "カレンダー",
+            "カレンダー",
+            "kalender"
+        ],
+        [
+            "ポスター",
+            "ポスター",
+            "Poster"
+        ],
+        [
+            "ゴミ箱",
+            "ごみばこ",
+            "Tempat sampah"
+        ],
+        [
+            "人形",
+            "にんぎょう",
+            "boneka"
+        ],
+        [
+            "花瓶",
+            "かびん",
+            "vas"
+        ],
+        [
+            "鏡",
+            "かがみ",
+            "cermin"
+        ],
+        [
+            "引き出し",
+            "ひきだし",
+            "laci"
+        ],
+        [
+            "玄関",
+            "げんかん",
+            "Pintu gerbang"
+        ],
+        [
+            "廊下",
+            "ろうか",
+            "Koridor"
+        ],
+        [
+            "壁",
+            "かべ",
+            "dinding"
+        ],
+        [
+            "池",
+            "いけ",
+            "kolam"
+        ],
+        [
+            "交番",
+            "こうばん",
+            "Pos Polisi"
+        ],
+        [
+            "元の所",
+            "もとのところ",
+            "Tempat asli"
+        ],
+        [
+            "周り",
+            "まわり",
+            "lingkungan, sekitar"
+        ],
+        [
+            "真ん中",
+            "まんなか",
+            "tengah"
+        ],
+        [
+            "隅",
+            "すみ",
+            "sudut"
+        ],
+        [
+            "まだ",
+            "まだ",
+            "belum"
+        ],
+        [
+            "～程",
+            "～ほど",
+            "setara*"
+        ],
+        [
+            "予定表",
+            "よていひょう",
+            "susunan acara"
+        ],
+        [
+            "ご苦労さま",
+            "ごくろうさま",
+            "Terima kasih atas kerja kerasnya"
+        ],
+        [
+            "希望",
+            "きぼう",
+            "harapan"
+        ],
+        [
+            "何かご希望がありますか",
+            "なにかごきぼうがありますか",
+            "apa yang anda harapkan/inginkan"
+        ],
+        [
+            "ミューシカル",
+            "ミューシカル",
+            "Musikal"
+        ],
+        [
+            "丸い",
+            "まるい",
+            "bulat"
+        ],
+        [
+            "月",
+            "つき",
+            "Bulan"
+        ],
+        [
+            "ある～",
+            "ある～",
+            "ada ~"
+        ],
+        [
+            "地球",
+            "ちきゅう",
+            "Bumi"
+        ],
+        [
+            "嬉しい",
+            "うれしい",
+            "senang"
+        ],
+        [
+            "嫌［な］",
+            "いや［な］",
+            "tidak suka ( kirai na )"
+        ],
+        [
+            "すると",
+            "すると",
+            "kemudian, dengan begitu"
+        ],
+        [
+            "目が覚める",
+            "めがさめます",
+            "membuka mata"
+        ]
+    ]
 }
