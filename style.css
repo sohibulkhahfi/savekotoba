@@ -1,202 +1,259 @@
 body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            background-color: #f4f4f9;
-        }
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	background-color: #f4f4f9;
+}
 
-        #header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            background-color: white;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
+#header {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 1000;
+	background-color: white;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
 
-        header {
-            background: #6200ea;
-            color: #fff;
-            padding: 1rem;
-            text-align: center;
-        }
+header {
+	background: #018786;
+	color: #fff;
+	padding: 1rem;
+	text-align: center;
+}
 
-        nav {
-            display: flex;
-            justify-content: center;
-            margin: 0;
-            padding: 1rem 0;
-            background: #03dac5;
-        }
+nav {
+	display: flex;
+	justify-content: center;
+	margin: 0;
+	padding: 1rem 0;
+	background: #03dac5;
+}
 
-        nav button {
-            margin: 0 5px;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            background: white;
-            color: #03dac5;
-            font-weight: bold;
-        }
+nav button {
+	margin: 0 5px;
+	padding: 10px 15px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	background: white;
+	color: #03dac5;
+	font-weight: bold;
+}
 
-        nav button:hover {
-            background: #018786;
-            color: white;
-        }
+nav button:hover {
+	background: #018786;
+	color: white;
+}
 
-        .content {
-            max-width: 800px;
-            margin: 180px auto 40px;
-            padding: 1rem;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
+.content {
+	max-width: 800px;
+	margin: 180px auto 40px;
+	padding: 1rem;
+	background: white;
+	border-radius: 8px;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+	text-align: center;
+}
 
-        .hidden {
-            display: none;
-        }
+.hidden {
+	display: none;
+}
 
-        p {
-            margin-top: 2px;
-        }
+p {
+	margin-top: 2px;
+}
 
-        .toggle-bab {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            margin: 5px 0;
-            background-color: #3498db;
-            color: white;
-            border: none;
-            cursor: pointer;
-            text-align: center;
-            font-size: 16px;
-            border-radius: 5px;
-        }
+.toggle-bab {
+	display: block;
+	width: 100%;
+	padding: 10px;
+	margin: 5px 0;
+	background-color: #34acdb;
+	color: white;
+	border: none;
+	cursor: pointer;
+	text-align: center;
+	font-size: 16px;
+	border-radius: 5px;
+}
 
-        .toggle-bab:hover {
-            background-color: #2980b9;
-        }
+.toggle-bab:hover {
+	background-color: #2980b9;
+}
 
-        /* Mengatur grid untuk flashcard agar sejajar seperti pada gambar */
-        .vocab-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 15px;
-            padding: 15px 0;
-            justify-content: center;
-        }
+/* Mengatur grid untuk flashcard agar sejajar seperti pada gambar */
+.vocab-container {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+	gap: 15px;
+	padding: 15px 0;
+	justify-content: center;
+}
 
-        .flashcard {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 20px 10px;
-            min-height: 120px;
-            text-align: center;
-            border: none;
-            border-radius: 12px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-            background-color: #a8fff3; /* Warna ungu lembut sesuai contoh */
-            font-size: 20px;
-            font-weight: bold;
-            transition: transform 0.1s ease;
-        }
+/* Pastikan grid pembungkus kartu memiliki efek perspektif 3D */
+#cardsGrid {
+	perspective: 1000px;
+}
 
-        .flashcard:hover {
-            background-color: #73f6e4;
-        }
+.flashcard {
+	position: relative;
+	width: 100%;
+	min-height: 120px;
+	background-color: transparent;
+	cursor: pointer;
+	border: none;
+	box-shadow: none;
+	/* Durasi dan jenis animasi putar */
+	transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+	transform-style: preserve-3d;
+}
 
-        .flashcard .card-sub {
-            font-size: 14px;
-            font-weight: normal;
-            color: #333;
-            margin-top: 8px;
-        }
+/* Kelas saat kartu dibalik */
+.flashcard.flipped {
+	transform: rotateY(180deg);
+}
 
-        .controls-container {
-            margin-bottom: 15px;
-            text-align: left;
-            font-weight: bold;
-        }
+/* Sisi depan dan belakang kartu */
+.card-front,
+.card-back {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 20px 10px;
+	border-radius: 12px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	box-sizing: border-box;
+}
 
-        .modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
+/* Sisi Depan (Kosakata Jepang) */
+.card-front {
+	background-color: #a8fff3;
+	font-size: 20px;
+	font-weight: bold;
+	color: #1e293b;
+	transition: background-color 0.2s ease;
+}
 
-        .modal-content {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            width: 60%;
-            max-width: 500px;
-            text-align: center;
-            max-height: 80vh;
-            overflow-y: auto;
-            position: relative;
-        }
+.flashcard:hover .card-front {
+	background-color: #73f6e4;
+}
 
-        .close-button {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            cursor: pointer;
-            font-size: 24px;
-            background-color: #ddd;
-            border-radius: 25%;
-            padding: 0 8px;
-        }
+/* Sisi Belakang (Arti / Terjemahan) */
+.card-back {
+	background-color: #018786; /* Menggunakan warna toska pekat yang senada */
+	color: #ffffff;
+	font-size: 18px;
+	font-weight: bold;
+	transform: rotateY(180deg);
+}
 
-        button, select { 
-            padding: 0.5rem 1rem; 
-            border: none; 
-            border-radius: 10px; 
-            background-color: #a8fff3; 
-            cursor: pointer; 
-        }
+.flashcard .card-sub {
+	font-size: 14px;
+	font-weight: normal;
+	color: #333;
+	margin-top: 8px;
+}
 
-        #questionCard { 
-            background-color: #a8fff3; 
-            padding: 2rem; 
-            font-size: 2rem; 
-            margin: 1rem auto; 
-            width: 80%; 
-            border-radius: 20px; 
-        }
+.card-back .card-sub {
+	color: #e2e8f0; /* Warna sub-teks di belakang lebih terang agar kontras */
+}
 
-        .choices button {
-            display: block;
-            margin: 0.5rem auto;
-            width: 80%;
-            font-size: 1rem;
-        }
+.controls-container {
+	margin-bottom: 15px;
+	text-align: left;
+	font-weight: bold;
+}
 
-        .correct { background-color: #4CAF50 !important; color: white; }
-        .wrong { background-color: #F44336 !important; color: white; }
-        #nextBtn { display: none; margin: 1rem auto; }
+.modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.8);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 1000;
+}
 
-        .kanji-main {
-            display: block;
-            font-size: 2rem;
-        }
+.modal-content {
+	background: white;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	width: 60%;
+	max-width: 500px;
+	text-align: center;
+	max-height: 80vh;
+	overflow-y: auto;
+	position: relative;
+}
 
-        .kanji-sub {
-            font-size: 0.8rem;
-            color: #555;
-        }
+.close-button {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	cursor: pointer;
+	font-size: 24px;
+	background-color: #ddd;
+	border-radius: 25%;
+	padding: 0 8px;
+}
+
+button,
+select {
+	padding: 0.5rem 1rem;
+	border: none;
+	border-radius: 10px;
+	background-color: #a8fff3;
+	cursor: pointer;
+}
+
+#questionCard {
+	background-color: #a8fff3;
+	padding: 2rem;
+	font-size: 2rem;
+	margin: 1rem auto;
+	width: 80%;
+	border-radius: 20px;
+}
+
+.choices button {
+	display: block;
+	margin: 0.5rem auto;
+	width: 80%;
+	font-size: 1rem;
+}
+
+.correct {
+	background-color: #4caf50 !important;
+	color: white;
+}
+.wrong {
+	background-color: #f44336 !important;
+	color: white;
+}
+#nextBtn {
+	display: none;
+	margin: 1rem auto;
+}
+
+.kanji-main {
+	display: block;
+	font-size: 2rem;
+}
+
+.kanji-sub {
+	font-size: 0.8rem;
+	color: #555;
+}
