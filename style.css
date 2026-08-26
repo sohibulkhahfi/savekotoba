@@ -104,17 +104,22 @@ p {
 	cursor: pointer;
 	border: none;
 	box-shadow: none;
-	/* Durasi dan jenis animasi putar */
-	transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+	transition:
+		transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1),
+		opacity 0.4s ease;
 	transform-style: preserve-3d;
+	opacity: 1;
 }
 
-/* Kelas saat kartu dibalik */
+.flashcard.hidden-card {
+	opacity: 0;
+	pointer-events: none;
+}
+
 .flashcard.flipped {
 	transform: rotateY(180deg);
 }
 
-/* Sisi depan dan belakang kartu */
 .card-front,
 .card-back {
 	position: absolute;
@@ -128,43 +133,49 @@ p {
 	align-items: center;
 	padding: 20px 10px;
 	border-radius: 12px;
-	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 	backface-visibility: hidden;
 	-webkit-backface-visibility: hidden;
 	box-sizing: border-box;
+	/* Memberikan latar putih bersih dan border halus */
+	background-color: #ffffff;
+	border: 1px solid #e2e8f0;
+	box-shadow:
+		0 4px 6px -1px rgba(0, 0, 0, 0.05),
+		0 2px 4px -1px rgba(0, 0, 0, 0.03);
+	transition:
+		border-color 0.2s ease,
+		box-shadow 0.2s ease;
 }
 
 /* Sisi Depan (Kosakata Jepang) */
 .card-front {
-	background-color: #a8fff3;
-	font-size: 20px;
+	color: #0f172a; /* Warna hitam pekat elegan (Slate 900) */
+	font-size: 22px;
 	font-weight: bold;
-	color: #1e293b;
-	transition: background-color 0.2s ease;
 }
 
+/* Hover effect sederhana saat cursor diarahkan ke kartu */
 .flashcard:hover .card-front {
-	background-color: #73f6e4;
+	border-color: #cbd5e1;
+	box-shadow: 0 6px 12px -2px rgba(0, 0, 0, 0.08);
 }
 
 /* Sisi Belakang (Arti / Terjemahan) */
 .card-back {
-	background-color: #018786; /* Menggunakan warna toska pekat yang senada */
-	color: #ffffff;
+	color: #0f172a;
 	font-size: 18px;
 	font-weight: bold;
 	transform: rotateY(180deg);
+	/* Memberi sedikit penanda warna lembut di border atas agar terasa beda sisi */
+	border-top: 4px solid #0d9488;
 }
 
+/* Sub-teks (Hiragana / Kanji kecil) */
 .flashcard .card-sub {
-	font-size: 14px;
-	font-weight: normal;
-	color: #333;
-	margin-top: 8px;
-}
-
-.card-back .card-sub {
-	color: #e2e8f0; /* Warna sub-teks di belakang lebih terang agar kontras */
+	font-size: 13px;
+	font-weight: 500;
+	color: #64748b; /* Warna abu-abu sedang agar hiragana tidak memotong fokus kanji */
+	margin-top: 6px;
 }
 
 .controls-container {

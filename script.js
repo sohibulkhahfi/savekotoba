@@ -50,6 +50,16 @@ function speakSentence(text) {
 	speechSynthesis.speak(utterance);
 }
 
+// Fungsi helper untuk mengacak array (Fisher-Yates Shuffle)
+function shuffleArray(array) {
+	const newArray = [...array];
+	for (let i = newArray.length - 1; i > 0; i--) {
+		const j = Math.floor(Math.random() * (i + 1));
+		[newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+	}
+	return newArray;
+}
+
 function loadFlashcards() {
 	const flashcardContainer = document.getElementById("flashcardContainer");
 	flashcardContainer.innerHTML = "";
@@ -70,87 +80,204 @@ function loadFlashcards() {
 		vocabContainer.style.display = "none";
 		flashcardContainer.appendChild(vocabContainer);
 
-		// Tambahkan checkbox "Tampilkan hiragana" di dalam container bab
+		// State untuk melacak mode dan posisi kartu pada Bab ini
+		let isSingleMode = false;
+		let shuffledData = [];
+		let currentIndex = 0;
+
+		// Tambahkan tombol Mode dan Back di dalam controls container
 		const controlsDiv = document.createElement("div");
 		controlsDiv.className = "controls-container";
+		controlsDiv.style.marginBottom = "15px";
 		controlsDiv.innerHTML = `
-                    <label style="cursor: pointer;">
-                        <input type="checkbox" class="hiragana-toggle" checked> Tampilkan hiragana
-                    </label>
-                `;
+            <label style="cursor: pointer; margin-right: 15px;">
+                <input type="checkbox" class="hiragana-toggle" checked> Tampilkan hiragana
+            </label>
+            <button class="mode-toggle" style="margin-right: 10px; cursor: pointer;">Mode: Satu per Satu</button>
+            <button class="prev-btn" style="display: none; cursor: pointer;">⬅ Back</button>
+        `;
 		vocabContainer.appendChild(controlsDiv);
 
-		const cardsGrid = document.createElement("div");
-		cardsGrid.style.display = "grid";
-		cardsGrid.style.gridTemplateColumns =
-			"repeat(auto-fill, minmax(140px, 1fr))";
-		cardsGrid.style.gap = "15px";
-		cardsGrid.style.marginTop = "10px";
-		vocabContainer.appendChild(cardsGrid);
+		// Container dinamis yang akan diisi oleh Grid atau Single Card
+		const viewContainer = document.createElement("div");
+		vocabContainer.appendChild(viewContainer);
 
 		const checkbox = controlsDiv.querySelector(".hiragana-toggle");
+		const modeToggle = controlsDiv.querySelector(".mode-toggle");
+		const prevBtn = controlsDiv.querySelector(".prev-btn");
 
-		// Fungsi untuk merender ulang kartu berdasarkan status checkbox hiragana
-		const renderCards = () => {
-			cardsGrid.innerHTML = "";
-			let lastOpenedCard = null;
+		// Fungsi Helper untuk membuat DOM kartu agar kode lebih rapi
+		const createCardElement = (entry, showHira) => {
+			const kanjiOrHira = entry[0] || entry[1];
+			const hiragana = entry[1];
+			const arti = entry[2];
 
-			rawData[bab].forEach((entry) => {
-				const kanjiOrHira = entry[0] || entry[1];
-				const hiragana = entry[1];
-				const arti = entry[2];
-				const showHira = checkbox.checked;
+			const flashcard = document.createElement("div");
+			flashcard.className = "flashcard";
 
-				const flashcard = document.createElement("div");
-				flashcard.className = "flashcard";
+			const frontDiv = document.createElement("div");
+			frontDiv.className = "card-front";
+			if (entry[0] && showHira) {
+				frontDiv.innerHTML = `<span class="card-sub">${hiragana}</span>${kanjiOrHira}`;
+			} else {
+				frontDiv.innerHTML = kanjiOrHira;
+			}
 
-				// Buat struktur isi depan dan belakang kartu
-				const frontDiv = document.createElement("div");
-				frontDiv.className = "card-front";
-				if (entry[0] && showHira) {
-					frontDiv.innerHTML = `<span class="card-sub">${hiragana}</span>${kanjiOrHira}`;
-				} else {
-					frontDiv.innerHTML = kanjiOrHira;
+			const backDiv = document.createElement("div");
+			backDiv.className = "card-back";
+			backDiv.innerHTML = `${arti}<span class="card-sub">${kanjiOrHira}</span>`;
+
+			flashcard.appendChild(frontDiv);
+			flashcard.appendChild(backDiv);
+
+			return { flashcard, hiragana };
+		};
+
+		// Fungsi utama untuk merender tampilan berdasarkan mode saat ini
+		const renderView = () => {
+			viewContainer.innerHTML = "";
+
+			if (!isSingleMode) {
+				// --- TAMPILAN DEFAULT (GRID) ---
+				modeToggle.textContent = "Mode: Satu per Satu (Acak)";
+				prevBtn.style.display = "none";
+
+				const cardsGrid = document.createElement("div");
+				cardsGrid.style.display = "grid";
+				cardsGrid.style.gridTemplateColumns =
+					"repeat(auto-fill, minmax(140px, 1fr))";
+				cardsGrid.style.gap = "15px";
+
+				let lastOpenedCard = null;
+
+				rawData[bab].forEach((entry) => {
+					const { flashcard, hiragana } = createCardElement(
+						entry,
+						checkbox.checked,
+					);
+
+					flashcard.onclick = () => {
+						const isFlipped = flashcard.classList.contains("flipped");
+						if (lastOpenedCard && lastOpenedCard !== flashcard) {
+							lastOpenedCard.classList.remove("flipped");
+						}
+
+						if (!isFlipped) {
+							flashcard.classList.add("flipped");
+							if (hiragana && typeof speakSentence === "function")
+								speakSentence(hiragana);
+							lastOpenedCard = flashcard;
+						} else {
+							flashcard.classList.remove("flipped");
+							lastOpenedCard = null;
+						}
+					};
+					cardsGrid.appendChild(flashcard);
+				});
+				viewContainer.appendChild(cardsGrid);
+			} else {
+				// --- TAMPILAN SATU PER SATU ---
+				modeToggle.textContent = "Mode: Semua (Grid)";
+				prevBtn.style.display = currentIndex > 0 ? "inline-block" : "none";
+
+				const singleContainer = document.createElement("div");
+				singleContainer.style.display = "flex";
+				singleContainer.style.flexDirection = "column";
+				singleContainer.style.alignItems = "center";
+				singleContainer.style.marginTop = "20px";
+
+				// Cek jika sudah mencapai akhir kartu
+				if (currentIndex >= shuffledData.length) {
+					singleContainer.innerHTML = `<h3 style="margin-bottom:15px;">Selesai! 🎉</h3>`;
+					const resetBtn = document.createElement("button");
+					resetBtn.textContent = "Ulangi Latihan";
+					resetBtn.style.cursor = "pointer";
+					resetBtn.onclick = () => {
+						shuffledData = shuffleArray(rawData[bab]);
+						currentIndex = 0;
+						renderView();
+					};
+					singleContainer.appendChild(resetBtn);
+					viewContainer.appendChild(singleContainer);
+					return;
 				}
 
-				const backDiv = document.createElement("div");
-				backDiv.className = "card-back";
-				// Sisi belakang menampilkan arti (dan bisa diberi furigana kecil jika mau)
-				backDiv.innerHTML = `${arti}<span class="card-sub">${kanjiOrHira}</span>`;
+				// Render kartu yang sedang aktif
+				const entry = shuffledData[currentIndex];
+				const { flashcard, hiragana } = createCardElement(
+					entry,
+					checkbox.checked,
+				);
 
-				flashcard.appendChild(frontDiv);
-				flashcard.appendChild(backDiv);
+				// Sedikit penyesuaian gaya agar kartu tunggal lebih terfokus (opsional)
+				flashcard.style.width = "250px";
+				flashcard.style.height = "180px";
+				flashcard.style.fontSize = "1.2em";
 
 				flashcard.onclick = () => {
+					if (flashcard.style.pointerEvents === "none") return;
+
 					const isFlipped = flashcard.classList.contains("flipped");
 
-					// Jika ada kartu lain yang sedang terbuka, tutup kembali
-					if (lastOpenedCard && lastOpenedCard !== flashcard) {
-						lastOpenedCard.classList.remove("flipped");
-					}
-
 					if (!isFlipped) {
-						// Buka kartu (putar ke sisi belakang)
 						flashcard.classList.add("flipped");
-						if (hiragana) {
+						if (hiragana && typeof speakSentence === "function")
 							speakSentence(hiragana);
-						}
-						lastOpenedCard = flashcard;
 					} else {
-						// Tutup kartu (kembali ke sisi depan)
+						// 1. Membalikkan kartu ke depan + perlahan menghilang (fade out)
 						flashcard.classList.remove("flipped");
-						lastOpenedCard = null;
+						flashcard.classList.add("hidden-card");
+						flashcard.style.pointerEvents = "none";
+
+						// 2. Tunggu transisi selesai (misal 500ms), lalu ganti data kartu
+						setTimeout(() => {
+							currentIndex++;
+							renderView();
+
+							// 3. Efek Fade In untuk kartu baru
+							const newCard = viewContainer.querySelector(".flashcard");
+							if (newCard) {
+								newCard.classList.add("hidden-card");
+								// Force reflow agar animasi CSS berjalan pasca render
+								void newCard.offsetWidth;
+								newCard.classList.remove("hidden-card");
+							}
+						}, 500);
 					}
 				};
 
-				cardsGrid.appendChild(flashcard);
-			});
+				// Teks indikator progress (misal: 1 / 20)
+				const progressText = document.createElement("p");
+				progressText.textContent = `Kartu ${currentIndex + 1} dari ${shuffledData.length}`;
+				progressText.style.marginTop = "15px";
+
+				singleContainer.appendChild(flashcard);
+				singleContainer.appendChild(progressText);
+				viewContainer.appendChild(singleContainer);
+			}
 		};
 
-		// Event listener saat checkbox diubah
-		checkbox.onchange = renderCards;
+		// Event Listeners untuk kontrol
+		checkbox.onchange = renderView;
 
-		// Render pertama kali (tertutup/hidden isi card-nya)
+		modeToggle.onclick = () => {
+			isSingleMode = !isSingleMode;
+			if (isSingleMode) {
+				// Saat masuk mode single, acak data dan mulai dari 0
+				shuffledData = shuffleArray(rawData[bab]);
+				currentIndex = 0;
+			}
+			renderView();
+		};
+
+		prevBtn.onclick = () => {
+			if (currentIndex > 0) {
+				currentIndex--;
+				renderView(); // Merender ulang membalikkan kartu kembali ke sisi depan
+			}
+		};
+
+		// Render pertama kali (saat tombol Bab diklik)
 		babToggle.onclick = () => {
 			document.querySelectorAll(".vocab-container").forEach((container) => {
 				if (container !== vocabContainer) {
@@ -159,8 +286,11 @@ function loadFlashcards() {
 			});
 			const isOpen = vocabContainer.style.display === "block";
 			vocabContainer.style.display = isOpen ? "none" : "block";
+
 			if (!isOpen) {
-				renderCards();
+				// Pastikan selalu mulai dengan grid view saat Bab baru dibuka
+				isSingleMode = false;
+				renderView();
 			}
 		};
 	});
