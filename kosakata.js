@@ -14,9 +14,8 @@ const Kosakata = {
 		],
 		["教師", "きょうし", "guru, dosen"],
 		["学生", "がくせい", "pelajar"],
-		["大学生", "だいがくせい", "Mahasiswa"][
-			("会社員", "かいしゃいん", "karyawan perusahaan")
-		],
+		["大学生", "だいがくせい", "Mahasiswa"],
+		["会社員", "かいしゃいん", "karyawan perusahaan"],
 		[
 			"社員",
 			"しゃいん",
