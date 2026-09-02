@@ -117,15 +117,16 @@ function loadFlashcards() {
 
 			const frontDiv = document.createElement("div");
 			frontDiv.className = "card-front";
+			const backDiv = document.createElement("div");
+			backDiv.className = "card-back";
+
 			if (entry[0] && showHira) {
 				frontDiv.innerHTML = `<span class="card-sub">${hiragana}</span>${kanjiOrHira}`;
 			} else {
 				frontDiv.innerHTML = kanjiOrHira;
 			}
 
-			const backDiv = document.createElement("div");
-			backDiv.className = "card-back";
-			backDiv.innerHTML = `${arti}<span class="card-sub">${kanjiOrHira}</span>`;
+			backDiv.innerHTML = `${arti}<span class="card-sub">${hiragana}</span>`;
 
 			flashcard.appendChild(frontDiv);
 			flashcard.appendChild(backDiv);
