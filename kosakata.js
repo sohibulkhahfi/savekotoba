@@ -851,7 +851,7 @@ const Kosakata = {
 		["", "だんだん", "berangsur-angsuran"],
 		["", "もうすぐ", "tidak lama lagi"],
 		["", "おかげさまで", "atas berkat"],
-		["", "でも", "tetap"],
+		["", "でも", "tetapi"],
 		["乾杯", "かんぱい", "tos (saat minum bersama)"],
 		["", "ダイエット", "diet"],
 		["無理な", "むりな", "mustahil, berlebihan, tidak masuk akal (memaksa)"],
